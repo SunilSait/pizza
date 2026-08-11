@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Something delicious is coming to Slice & Dice — stay tuned for our new location and exciting menu launches!">
+  <title>Coming Soon | Slice & Dice — Pizza & Fast Food</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .flicker { animation: flicker 2s ease-in-out infinite; }
+  </style>
+</head>
+<body style="min-height:100svh;background:var(--secondary);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+
+  <!-- Background -->
+  <div style="position:fixed;inset:0;z-0;overflow:hidden;pointer-events:none;">
+    <img src="assets/images/hero_home2.png" alt="" style="width:100%;height:100%;object-fit:cover;opacity:0.12;mix-blend-mode:luminosity;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,46,0.9) 0%,rgba(26,26,46,0.95) 100%);"></div>
+    <!-- Grid pattern -->
+    <div style="position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(0deg,#E8341C 0,#E8341C 1px,transparent 1px,transparent 70px),repeating-linear-gradient(90deg,#E8341C 0,#E8341C 1px,transparent 1px,transparent 70px);z-index:1;"></div>
+  </div>
+
+  <!-- Orbs -->
+  <div class="bg-orb" style="width:500px;height:500px;background:var(--primary);top:-200px;left:-150px;opacity:0.12;animation-duration:14s;"></div>
+  <div class="bg-orb" style="width:350px;height:350px;background:var(--accent);bottom:-150px;right:-100px;opacity:0.07;animation-delay:5s;animation-duration:10s;"></div>
+
+  <!-- Top-right controls -->
+  <div style="position:fixed;top:1rem;right:1rem;z-index:50;display:flex;gap:0.5rem;">
+    <button id="cs-dir-btn" onclick="toggleDir()" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);cursor:pointer;font-size:0.65rem;font-weight:800;font-family:'DM Sans',sans-serif;transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">LTR</button>
+    <button onclick="toggleTheme()" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);cursor:pointer;transition:color 0.2s;" aria-label="Toggle theme" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+      <span id="cs-theme-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div style="position:relative;z-index:10;text-align:center;padding:2rem 1.25rem;max-width:700px;width:100%;">
+
+    <!-- Logo -->
+    <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+      <a href="index.html" class="logo-bounce" style="display:inline-flex;align-items:center;gap:0.65rem;text-decoration:none;" aria-label="Slice & Dice Home">
+        <div class="nav-logo-icon" style="width:46px;height:46px;">
+          <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
+            <path d="M32 8 C16 10 8 22 8 32 L32 32 Z" fill="white" opacity="0.9"/>
+            <path d="M32 8 C48 10 56 22 56 32 L32 32 Z" fill="white" opacity="0.6"/>
+            <path d="M8 32 C10 48 22 56 32 56 L32 32 Z" fill="white" opacity="0.4"/>
+            <circle cx="22" cy="22" r="3" fill="white" opacity="0.95"/>
+          </svg>
+        </div>
+        <div style="display:flex;flex-direction:column;line-height:1;text-align:left;">
+          <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:#fff;">Slice&amp;<span style="color:var(--primary);">Dice</span></span>
+          <span style="font-size:0.52rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Pizza &amp; Fast Food</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Badge -->
+    <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+      <div style="display:inline-flex;align-items:center;gap:0.6rem;background:rgba(232,52,28,0.15);border:1px solid rgba(232,52,28,0.3);border-radius:99px;padding:0.4rem 1rem;" class="animate-fade-in">
+        <span class="pulse-dot"></span>
+        <span style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:var(--primary-lt);">Something Exciting is Coming</span>
+      </div>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,12vw,7rem);color:#fff;line-height:0.92;letter-spacing:-0.02em;margin-bottom:1.25rem;" class="animate-fade-in">
+      COMING<br><span class="gradient-text flicker">SOON</span>
+    </h1>
+
+    <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);margin-bottom:3rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;" class="animate-fade-in">
+      We're cooking up something big — a brand new location in Velachery and exciting additions to our menu. Our current restaurant is fully open and serving you!
+    </p>
+
+    <!-- Countdown Timer -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:0.85rem;flex-wrap:wrap;margin-bottom:3rem;" class="animate-fade-in">
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem;">
+          <span data-days style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--primary);">30</span>
+        </div>
+        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Days</span>
+      </div>
+      <div style="font-size:1.75rem;font-weight:900;color:rgba(255,255,255,0.3);padding-bottom:1.4rem;">:</div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem;">
+          <span data-hours style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--primary);">00</span>
+        </div>
+        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Hours</span>
+      </div>
+      <div style="font-size:1.75rem;font-weight:900;color:rgba(255,255,255,0.3);padding-bottom:1.4rem;">:</div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem;">
+          <span data-mins style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--primary);">00</span>
+        </div>
+        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Mins</span>
+      </div>
+      <div style="font-size:1.75rem;font-weight:900;color:rgba(255,255,255,0.3);padding-bottom:1.4rem;">:</div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem;">
+          <span data-secs style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--primary);">00</span>
+        </div>
+        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Secs</span>
+      </div>
+    </div>
+
+    <!-- Email Subscribe -->
+    <div style="margin-bottom:2.5rem;">
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.55);margin-bottom:1rem;">Get notified when we open the new location. No spam, ever.</p>
+      <form onsubmit="event.preventDefault();document.getElementById('cs-success').style.display='block';this.reset();" style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;margin:0 auto;">
+        <input type="email" id="cs-email" class="form-input" placeholder="Enter your email address" required style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Notify Me When We Open!</button>
+      </form>
+      <div id="cs-success" style="display:none;margin-top:1rem;color:var(--accent);font-weight:700;font-size:0.88rem;">
+        ✅ You're on the list! We'll notify you when the new location opens.
+      </div>
+    </div>
+
+    <!-- Action Links -->
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2rem;">
+      <a href="index.html" style="background:#fff;color:var(--secondary);font-weight:800;padding:0.85rem 1.75rem;border-radius:0.65rem;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;transition:background 0.2s,transform 0.2s;display:flex;align-items:center;gap:0.5rem;" onmouseover="this.style.background='var(--primary-lt)';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='var(--secondary)'">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Visit Our Restaurant
+      </a>
+      <a href="contact.html" style="border:2px solid rgba(255,255,255,0.25);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:0.65rem;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:flex;align-items:center;gap:0.5rem;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary-lt)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)';this.style.color='#fff'">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+        Contact Us
+      </a>
+    </div>
+
+    <!-- Phone line -->
+    <a href="tel:+914428001234" style="display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.4);font-size:0.85rem;font-weight:600;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--primary-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+      +91 44 2800 1234 &nbsp;·&nbsp; Mon–Sun 11AM–11PM
+    </a>
+
+  </div>
+
+  <script src="components.js"></script>
+  <script>
+    // Countdown
+    (function() {
+      const launch = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+      function update() {
+        const diff = launch - Date.now();
+        if (diff <= 0) return;
+        const pad = n => String(n).padStart(2,'0');
+        document.querySelectorAll('[data-days]').forEach(el => el.textContent = pad(Math.floor(diff/86400000)));
+        document.querySelectorAll('[data-hours]').forEach(el => el.textContent = pad(Math.floor((diff%86400000)/3600000)));
+        document.querySelectorAll('[data-mins]').forEach(el => el.textContent = pad(Math.floor((diff%3600000)/60000)));
+        document.querySelectorAll('[data-secs]').forEach(el => el.textContent = pad(Math.floor((diff%60000)/1000)));
+      }
+      update(); setInterval(update, 1000);
+
+      // Apply saved prefs
+      const t = localStorage.getItem('sd_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && prefersDark)) document.documentElement.classList.add('dark');
+      const d = localStorage.getItem('sd_dir');
+      if (d === 'rtl') { document.documentElement.setAttribute('dir','rtl'); const b=document.getElementById('cs-dir-btn'); if(b)b.textContent='RTL'; }
+    })();
+  </script>
+</body>
+</html>

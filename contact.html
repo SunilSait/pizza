@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Slice & Dice — Call, WhatsApp, email or visit us in T. Nagar, Chennai. Open daily 11AM–11PM.">
+  <title>Contact Us | Slice & Dice — Pizza & Fast Food</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .contact-hero {
+      background: var(--secondary);
+      padding: calc(68px + 4rem) 0 5rem;
+      position: relative; overflow: hidden;
+    }
+    .contact-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3rem;
+      align-items: flex-end;
+    }
+    /* ── Quick-action strip ── */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .quick-action-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: #fff;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    .quick-action-card:hover { background: rgba(255,255,255,0.07); border-color: var(--primary); transform: translateY(-3px); }
+    .qa-icon {
+      width: 44px; height: 44px; border-radius: 0.75rem;
+      background: rgba(232,52,28,0.2); color: var(--primary-lt);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .qa-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .qa-value { font-size: 0.88rem; font-weight: 700; color: #fff; line-height: 1.4; }
+
+    /* ── Hours visual ── */
+    .hours-bar {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .hours-bar:last-child { border-bottom: none; }
+    .hours-day { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.5); min-width: 80px; }
+    .hours-time { font-size: 0.82rem; font-weight: 600; color: #fff; flex: 1; }
+    .hours-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232,52,28,0.5); flex-shrink: 0; }
+    .hours-dot.open { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+
+    /* ── Map + form section ── */
+    @media (max-width: 1024px) {
+      .contact-split { grid-template-columns: 1fr !important; }
+      .contact-hero-grid { grid-template-columns: 1fr; }
+      .quick-actions { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .quick-actions { grid-template-columns: repeat(1, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① HERO — Dark two-column: big headline + quick-action cards
+══════════════════════════════════════════════════════════ -->
+<section class="contact-hero" id="contact-hero">
+  <div class="noise-overlay"></div>
+  <div class="bg-orb" style="width:400px;height:400px;background:var(--primary);top:-150px;right:-100px;opacity:0.07;"></div>
+  <div class="bg-orb" style="width:250px;height:250px;background:var(--accent);bottom:-80px;left:-60px;opacity:0.04;animation-delay:5s;"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="contact-hero-grid">
+      <div class="animate-fade-in">
+        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <span style="width:28px;height:2px;background:var(--primary);display:block;"></span>
+          Reach Out
+        </div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:0.92;letter-spacing:-0.02em;margin-bottom:1.5rem;">
+          We'd <em style="font-style:italic;color:var(--primary);">Love</em><br>to Hear<br>From You
+        </h1>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:380px;line-height:1.8;margin-bottom:2.5rem;">
+          Reservations, catering enquiries, feedback, or just to say hi — every message is read personally by our team.
+        </p>
+        <!-- Opening status -->
+        <div style="display:inline-flex;align-items:center;gap:0.6rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:99px;padding:0.45rem 1rem;margin-bottom:2rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.25);"></div>
+          <span style="font-size:0.7rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#4ade80;">Open Now · Closes 11:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Quick action cards on the right -->
+      <div class="animate-fade-in" style="animation-delay:0.15s;">
+        <div class="quick-actions">
+          <a href="tel:+914428001234" class="quick-action-card" id="contact-call-card">
+            <div class="qa-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+            </div>
+            <div>
+              <div class="qa-label">Call Us</div>
+              <div class="qa-value">+91 44 2800 1234</div>
+            </div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Mon–Sun · 11AM–11PM</div>
+          </a>
+          <a href="https://wa.me/914428001234" class="quick-action-card" id="contact-wa-card" target="_blank" rel="noopener">
+            <div class="qa-icon" style="background:rgba(34,197,94,0.15);color:#4ade80;">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div>
+              <div class="qa-label">WhatsApp</div>
+              <div class="qa-value">Chat with us directly</div>
+            </div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Fastest response</div>
+          </a>
+          <a href="mailto:hello@sliceanddice.in" class="quick-action-card" id="contact-email-card">
+            <div class="qa-icon" style="background:rgba(247,183,49,0.15);color:var(--accent);">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="qa-label">Email</div>
+              <div class="qa-value">hello@sliceanddice.in</div>
+            </div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Reply within 24 hours</div>
+          </a>
+        </div>
+
+        <!-- Hours below cards -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-top:1rem;">
+          <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;">Opening Hours</div>
+          <div class="hours-bar">
+            <div class="hours-day">Mon – Fri</div>
+            <div class="hours-time">11:00 AM – 11:00 PM</div>
+            <div class="hours-dot open"></div>
+          </div>
+          <div class="hours-bar">
+            <div class="hours-day">Sat – Sun</div>
+            <div class="hours-time">11:00 AM – 11:30 PM</div>
+            <div class="hours-dot open"></div>
+          </div>
+          <div class="hours-bar">
+            <div class="hours-day">Holidays</div>
+            <div class="hours-time">11:00 AM – 11:00 PM</div>
+            <div class="hours-dot open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② FORM + SIDEBAR — Gradient sidebar card
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="contact-form-section">
+  <div class="container">
+    <div class="contact-split reveal">
+      <!-- Left: Red gradient sidebar -->
+      <div class="contact-sidebar">
+        <div class="noise-overlay" style="opacity:0.04;border-radius:inherit;"></div>
+        <div style="position:relative;z-index:1;flex:1;">
+          <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1.75rem;">Contact Info</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:#fff;line-height:1.1;margin-bottom:2rem;">Let's Start a<br>Conversation</h2>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-sidebar-label">Address</div>
+              <div class="contact-sidebar-value">24 Marina Road, T. Nagar,<br>Chennai – 600017</div>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+            </div>
+            <div>
+              <div class="contact-sidebar-label">Phone</div>
+              <div class="contact-sidebar-value"><a href="tel:+914428001234">+91 44 2800 1234</a></div>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-sidebar-label">Email</div>
+              <div class="contact-sidebar-value"><a href="mailto:hello@sliceanddice.in">hello@sliceanddice.in</a></div>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-sidebar-label">Hours</div>
+              <div class="contact-sidebar-value">Daily 11:00 AM – 11:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social links at bottom -->
+        <div style="position:relative;z-index:1;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.15);">
+          <div style="font-size:0.6rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:1rem;">Find Us Online</div>
+          <div style="display:flex;gap:0.6rem;">
+            <a href="#" style="width:34px;height:34px;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,0.6)'">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" style="width:34px;height:34px;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,0.6)'">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" style="width:34px;height:34px;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,0.6)'">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.67a8.19 8.19 0 0 0 4.79 1.52V6.7s-.01 0-.02-.01z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-side">
+        <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);margin-bottom:1.75rem;">Send a Message</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;margin-bottom:1.75rem;">Drop Us a Line</h2>
+
+        <form id="contact-form" onsubmit="handleForm(event)" style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div>
+              <label for="cf-name" class="form-label">Full Name</label>
+              <input type="text" id="cf-name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="cf-phone" class="form-label">Phone</label>
+              <input type="tel" id="cf-phone" class="form-input" placeholder="+91 98765 43210">
+            </div>
+          </div>
+          <div>
+            <label for="cf-email" class="form-label">Email Address</label>
+            <input type="email" id="cf-email" class="form-input" placeholder="your@email.com" required>
+          </div>
+          <div>
+            <label for="cf-subject" class="form-label">Subject</label>
+            <select id="cf-subject" class="form-input" required>
+              <option value="">Select a topic</option>
+              <option>Table Reservation</option>
+              <option>Catering Enquiry</option>
+              <option>Delivery Feedback</option>
+              <option>Food Quality</option>
+              <option>Partnership / Collaboration</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div>
+            <label for="cf-message" class="form-label">Your Message</label>
+            <textarea id="cf-message" class="form-input" placeholder="Tell us how we can help..." required style="min-height:140px;resize:vertical;"></textarea>
+          </div>
+
+          <!-- Rating mini section -->
+          <div style="background:var(--bg-alt);border-radius:0.75rem;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.25rem;">Rate your experience</div>
+              <div style="font-size:0.78rem;color:var(--text-faint);">Optional — helps us improve</div>
+            </div>
+            <div id="star-rating" style="display:flex;gap:0.35rem;">
+              <span class="star-btn" data-v="1" style="font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s;" onclick="setRating(1)">★</span>
+              <span class="star-btn" data-v="2" style="font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s;" onclick="setRating(2)">★</span>
+              <span class="star-btn" data-v="3" style="font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s;" onclick="setRating(3)">★</span>
+              <span class="star-btn" data-v="4" style="font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s;" onclick="setRating(4)">★</span>
+              <span class="star-btn" data-v="5" style="font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s;" onclick="setRating(5)">★</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:0.88rem;" id="contact-submit-btn">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+
+          <div id="cf-success" style="display:none;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);color:#16a34a;border-radius:0.75rem;padding:1.1rem;text-align:center;font-weight:700;font-size:0.88rem;">
+            ✅ Message sent! We'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ③ FULL MAP — Floating overlay card
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="padding-top:0;" id="map-section">
+  <div class="container">
+    <div class="map-full-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0453124800577!2d80.23287!3d13.04038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267133b1c77a3%3A0x6b2f9da8d95d6df8!2sT.%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+        title="Slice & Dice Location in T. Nagar, Chennai"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Floating card -->
+      <div class="map-float-card">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,0.2);"></div>
+          <span style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:#16a34a;">Open Now · Closes 11PM</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;margin-bottom:1.1rem;">Slice &amp; Dice T. Nagar</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;align-items:flex-start;gap:0.7rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="margin-top:2px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.8rem;color:var(--text-muted);line-height:1.6;">24 Marina Road, T. Nagar, Chennai 600017</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.7rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span style="font-size:0.8rem;color:var(--text-muted);">Daily 11:00 AM – 11:00 PM</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.7rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+            <a href="tel:+914428001234" style="font-size:0.8rem;font-weight:700;color:var(--primary);">+91 44 2800 1234</a>
+          </div>
+        </div>
+        <a href="https://maps.google.com?q=T.Nagar+Chennai" class="btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.25rem;font-size:0.78rem;" id="map-directions-link">
+          Get Directions →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ④ BOTTOM STRIP — Dark CTA
+══════════════════════════════════════════════════════════ -->
+<div style="background:var(--secondary);padding:3rem 0;text-align:center;position:relative;overflow:hidden;">
+  <div class="noise-overlay"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;">Nearest Landmark</p>
+    <p style="font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.65);">Opposite T. Nagar Bus Terminus · Near Pondy Bazaar</p>
+  </div>
+</div>
+
+<div id="main-footer"></div>
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<style>
+  section { scroll-margin-top: 68px; }
+  @media (max-width: 768px) {
+    .contact-hero-grid { grid-template-columns: 1fr !important; }
+    .quick-actions { grid-template-columns: 1fr !important; }
+    #contact-form > div:first-child { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script src="components.js"></script>
+<script>
+  // Star rating
+  let currentRating = 0;
+  function setRating(v) {
+    currentRating = v;
+    document.querySelectorAll('.star-btn').forEach((s, i) => {
+      s.style.opacity = i < v ? '1' : '0.25';
+      s.style.color   = i < v ? 'var(--accent)' : 'inherit';
+    });
+  }
+
+  // Form submit
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('contact-submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('cf-success').style.display = 'block';
+      document.getElementById('contact-form').reset();
+      setRating(0);
+      btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Sent!';
+      btn.style.background = '#16a34a';
+      setTimeout(() => {
+        btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+        document.getElementById('cf-success').style.display = 'none';
+      }, 4000);
+    }, 900);
+  }
+</script>
+</body>
+</html>

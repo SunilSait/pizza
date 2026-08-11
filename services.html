@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Slice & Dice services — Dine-In, Takeaway, Home Delivery & Catering. Chennai's most reliable pizza restaurant for all occasions.">
+  <title>Services | Slice & Dice — Dine-In, Takeaway & Delivery</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO — Numbers-forward split ── */
+    .services-hero {
+      min-height: 75vh;
+      background: var(--secondary);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 68px;
+      position: relative; overflow: hidden;
+    }
+    .svc-hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 2;
+    }
+    .svc-hero-right {
+      position: relative; overflow: hidden;
+    }
+    .svc-hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .svc-hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--secondary) 0%, rgba(26,26,46,0.3) 35%, transparent 60%);
+    }
+    .svc-big-3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18rem; font-weight: 900; line-height: 1;
+      color: rgba(255,255,255,0.04);
+      position: absolute; top: -2rem; right: -2rem;
+      pointer-events: none; user-select: none;
+    }
+
+    /* ── FAQ numbered lines ── */
+    .faq-line .accordion-item {
+      background: transparent; border: none; border-radius: 0;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .dark .faq-line .accordion-item { border-color: var(--border-dk); }
+    .faq-line .accordion-btn { padding: 1.5rem 0; font-size: 0.95rem; }
+    .faq-counter {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.72rem; font-weight: 900; color: var(--primary);
+      margin-right: 0.75rem;
+    }
+
+    /* ── Process timeline horizontal ── */
+    .order-timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      position: relative;
+      gap: 0;
+    }
+    .order-timeline::before {
+      content: '';
+      position: absolute; top: 28px;
+      left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+    }
+    .ot-item { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+    .ot-dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bg-light); border: 2.5px solid var(--primary);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem; box-shadow: 0 0 0 6px rgba(232,52,28,0.1);
+      transition: background var(--transition), color var(--transition);
+    }
+    .ot-item:hover .ot-dot { background: var(--primary); color: #fff; }
+    .dark .ot-dot { background: var(--bg-dark-card); }
+    .ot-title { font-family: 'Playfair Display', serif; font-size: 0.88rem; font-weight: 800; margin-bottom: 0.35rem; }
+    .ot-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.65; }
+
+    @media (max-width: 1024px) {
+      .order-timeline { grid-template-columns: repeat(3, 1fr); }
+      .order-timeline::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .services-hero { grid-template-columns: 1fr; }
+      .svc-hero-left { padding: 5rem 1.5rem 3rem; }
+      .svc-hero-right { height: 300px; }
+      .order-timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① HERO — Number-forward dark split
+══════════════════════════════════════════════════════════ -->
+<section class="services-hero" id="services-hero">
+  <div class="noise-overlay" style="z-index:5;"></div>
+  <div class="bg-orb" style="width:350px;height:350px;background:var(--primary);top:-100px;left:-100px;opacity:0.07;"></div>
+
+  <div class="svc-hero-left animate-fade-in">
+    <span class="svc-big-3">3</span>
+    <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;position:relative;z-index:2;">
+      <span style="width:28px;height:2px;background:var(--primary);display:block;"></span>
+      How We Serve You
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;color:#fff;line-height:0.95;letter-spacing:-0.02em;margin-bottom:1.5rem;position:relative;z-index:2;">
+      3 Ways to<br>Get Your <em style="font-style:italic;color:var(--primary);">Slice</em>
+    </h1>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:380px;margin-bottom:2.5rem;position:relative;z-index:2;">
+      Whether you want the full restaurant experience, a quick takeaway, or hot food at your doorstep — we've got it covered. Every single day.
+    </p>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;position:relative;z-index:2;">
+      <a href="#dine-in" class="btn-primary" id="svc-hero-dine">Dine In</a>
+      <a href="#delivery" class="btn-secondary" style="color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.2);" id="svc-hero-delivery">Order Delivery</a>
+    </div>
+  </div>
+
+  <div class="svc-hero-right">
+    <div class="svc-hero-right-overlay"></div>
+    <img src="assets/images/restaurant_interior.png" alt="Dining experience at Slice & Dice">
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② MARQUEE TICKER
+══════════════════════════════════════════════════════════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <div class="marquee-content">
+      <span class="marquee-item">🍽️ Dine In <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛍️ Takeaway <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛵 Home Delivery <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🎉 Private Catering <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🕚 11AM – 11PM Daily <span class="marquee-dot"></span></span>
+      <span class="marquee-item">📞 +91 44 2800 1234 <span class="marquee-dot"></span></span>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <span class="marquee-item">🍽️ Dine In <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛍️ Takeaway <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛵 Home Delivery <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🎉 Private Catering <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🕚 11AM – 11PM Daily <span class="marquee-dot"></span></span>
+      <span class="marquee-item">📞 +91 44 2800 1234 <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ③ SERVICE PANELS — Full-width alternating rows
+══════════════════════════════════════════════════════════ -->
+<div id="dine-in">
+  <!-- Dine-In Panel -->
+  <div class="service-panel reveal">
+    <div class="service-panel-img">
+      <img src="assets/images/restaurant_interior.png" alt="Dine-In at Slice & Dice">
+    </div>
+    <div class="service-panel-body">
+      <div class="service-num">01</div>
+      <div class="section-label" style="margin-bottom:0.75rem;">Dine In</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">The Full<br>Restaurant Experience</h2>
+      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Settle into one of our 60 seats and soak in the warm, wood-fired ambiance. Live music on weekends. Table service all day. Ideal for dates, birthdays, and family celebrations.</p>
+      <div class="check-list" style="margin-bottom:1.75rem;">
+        <div class="check-item">
+          <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Table reservation recommended on weekends — call ahead</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Full menu available including specials not listed online</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Group tables for 10–20 persons with prior notice</div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-primary" id="svc-dine-reserve">Reserve a Table</a>
+    </div>
+  </div>
+</div>
+
+<!-- Takeaway Panel (reversed) -->
+<div class="service-panel reverse reveal">
+  <div class="service-panel-img">
+    <img src="assets/images/combo_deal.png" alt="Takeaway from Slice & Dice">
+  </div>
+  <div class="service-panel-body">
+    <div class="service-num">02</div>
+    <div class="section-label" style="margin-bottom:0.75rem;">Takeaway</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Ready in 15<br>Minutes, Flat</h2>
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Call or WhatsApp your order ahead and it'll be boxed and waiting when you arrive. No waiting. Just grab and go — perfect for lunch breaks and family dinners at home.</p>
+    <div class="check-list" style="margin-bottom:1.75rem;">
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Order by phone or WhatsApp — we confirm in under 2 minutes</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Eco-friendly, insulated packaging keeps food hot for 45 mins</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Pay by cash, UPI, or card at pickup — your choice</div>
+      </div>
+    </div>
+    <a href="tel:+914428001234" class="btn-primary" id="svc-takeaway-call">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+      Call to Pre-Order
+    </a>
+  </div>
+</div>
+
+<!-- Delivery Panel -->
+<div id="delivery" class="service-panel reveal">
+  <div class="service-panel-img">
+    <img src="assets/images/delivery_service.png" alt="Home Delivery from Slice & Dice">
+  </div>
+  <div class="service-panel-body">
+    <div class="service-num">03</div>
+    <div class="section-label" style="margin-bottom:0.75rem;">Home Delivery</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Hot at Your<br>Door in 30 Min</h2>
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">We deliver across a 5km radius from T. Nagar. No platform fees. No middleman. You order directly with us, and our riders bring it to your door — guaranteed hot.</p>
+    <div class="check-list" style="margin-bottom:1.75rem;">
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">5km delivery radius — covers most of Chennai central</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Free redelivery if food arrives cold or incorrect — zero questions</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">₹0 delivery fee on orders above ₹499. ₹49 below.</div>
+      </div>
+    </div>
+    <a href="https://wa.me/914428001234" class="btn-primary" id="svc-delivery-wa" target="_blank" rel="noopener">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Order on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ④ ORDER PROCESS — Horizontal timeline
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="how-it-works">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">The Process</div>
+      <h2 class="section-title">From Craving to<br>First Bite — 5 Steps</h2>
+    </div>
+    <div class="order-timeline stagger-container" style="margin-top:3rem;">
+      <div class="ot-item stagger-item">
+        <div class="ot-dot">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        </div>
+        <div class="ot-title">Browse Menu</div>
+        <div class="ot-desc">Check our 50+ item menu. Choose your favourites.</div>
+      </div>
+      <div class="ot-item stagger-item">
+        <div class="ot-dot">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+        </div>
+        <div class="ot-title">Place Order</div>
+        <div class="ot-desc">Call or WhatsApp your order. Confirmed in 2 minutes.</div>
+      </div>
+      <div class="ot-item stagger-item">
+        <div class="ot-dot">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div class="ot-title">Payment</div>
+        <div class="ot-desc">Cash, UPI, or card — pay what suits you.</div>
+      </div>
+      <div class="ot-item stagger-item">
+        <div class="ot-dot">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="ot-title">We Prepare</div>
+        <div class="ot-desc">Your food is freshly made — no pre-batches, ever.</div>
+      </div>
+      <div class="ot-item stagger-item">
+        <div class="ot-dot" style="background:var(--primary);color:#fff;border-color:var(--primary);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="ot-title">Enjoy!</div>
+        <div class="ot-desc">Hot, fresh, and exactly as ordered. Guaranteed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑤ CATERING — Bold split section
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="catering">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="reveal">
+      <div>
+        <div class="section-label">Catering</div>
+        <h2 class="section-title">Feeding a Crowd?<br>We've Got You.</h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:1.75rem;">Office parties, birthday celebrations, wedding receptions, corporate events — we handle events of 20 to 500 people. Fully customisable menu, setup, and serving staff available.</p>
+        <div class="check-list" style="margin-bottom:2rem;">
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Minimum 20 persons — no maximum cap on large events</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Custom menu packages — per head pricing from ₹299</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Live pizza station available for events — a crowd favourite</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Advance booking required — 48 hours minimum notice</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" id="svc-catering-enquire">Enquire About Catering</a>
+      </div>
+      <div style="position:relative;">
+        <img src="assets/images/combo_deal.png" alt="Catering setup by Slice & Dice" style="width:100%;border-radius:2rem;box-shadow:var(--shadow-lg);display:block;">
+        <div style="position:absolute;top:-1.25rem;right:-1.25rem;background:var(--accent);color:var(--secondary);border-radius:1.25rem;padding:1.25rem 1.5rem;box-shadow:0 8px 30px rgba(247,183,49,0.3);">
+          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;">From</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;line-height:1;">₹299</div>
+          <div style="font-size:0.65rem;font-weight:700;opacity:0.75;margin-top:0.2rem;">per person</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑥ FAQ — Numbered accordion lines
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="faq">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;">
+      <div class="reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title" style="max-width:280px;">Common Questions</h2>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;margin-top:1rem;">Can't find your answer? Call us at <a href="tel:+914428001234" style="color:var(--primary);font-weight:700;">+91 44 2800 1234</a>.</p>
+      </div>
+      <div class="faq-line reveal">
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAcc(this)">
+            <span><span class="faq-counter">01</span>What are your opening hours?</span>
+            <svg class="acc-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>We are open Monday to Sunday, 11:00 AM to 11:00 PM. We're open on all public holidays. Last orders are taken 30 minutes before closing.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAcc(this)">
+            <span><span class="faq-counter">02</span>How far do you deliver?</span>
+            <svg class="acc-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>We deliver within a 5km radius of our T. Nagar location. This covers most of Chennai central including Nungambakkam, Kodambakkam, Alwarpet, Mylapore, and nearby areas. Delivery is free above ₹499.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAcc(this)">
+            <span><span class="faq-counter">03</span>Do you take table reservations?</span>
+            <svg class="acc-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Yes! We strongly recommend reservations on Friday, Saturday, and Sunday evenings. Call us or send a WhatsApp message. Walk-ins are welcome but may face a short wait during peak hours.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAcc(this)">
+            <span><span class="faq-counter">04</span>Can I customise my pizza?</span>
+            <svg class="acc-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Absolutely. Mention your preferences when ordering — extra cheese, no onions, gluten-light base, spice level adjustment. We accommodate most requests. Just ask.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAcc(this)">
+            <span><span class="faq-counter">05</span>What payment methods do you accept?</span>
+            <svg class="acc-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>We accept cash, all major credit/debit cards, UPI (Google Pay, PhonePe, BHIM), and net banking. Dine-in, takeaway, and delivery all support digital payments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑦ CTA BAND
+══════════════════════════════════════════════════════════ -->
+<section style="background:var(--primary);padding:4rem 0;text-align:center;position:relative;overflow:hidden;" id="svc-cta">
+  <div class="noise-overlay"></div>
+  <div class="bg-orb" style="width:300px;height:300px;background:rgba(255,255,255,0.1);top:-100px;right:-50px;opacity:0.15;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;margin-bottom:0.85rem;">Ready to Order?</h2>
+    <p style="color:rgba(255,255,255,0.75);font-size:1rem;margin-bottom:2rem;">Call us, WhatsApp us, or just walk in. We're always ready.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:+914428001234" class="btn-primary" style="background:#fff;color:var(--primary);">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+        Call Now
+      </a>
+      <a href="menu.html" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.35);">Browse Menu →</a>
+    </div>
+  </div>
+</section>
+
+<div id="main-footer"></div>
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+<style>
+  section { scroll-margin-top: 68px; }
+  @media (max-width: 768px) {
+    #catering > .container > div { grid-template-columns: 1fr !important; }
+    #faq > .container > div { grid-template-columns: 1fr !important; }
+  }
+</style>
+<script src="components.js"></script>
+</body>
+</html>

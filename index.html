@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Slice & Dice — Chennai's favourite local pizza and fast food restaurant. Wood-fired pizzas, juicy burgers, fast delivery. Dine-in, takeaway or delivered.">
+  <title>Slice & Dice | Local Pizza & Fast Food — Home</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PAGE-SPECIFIC HERO ── */
+    .home1-hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+    .home1-hero-left {
+      background: var(--secondary);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      position: relative; overflow: hidden;
+      z-index: 2;
+    }
+    .home1-hero-left::after {
+      content: '';
+      position: absolute; top: 0; right: -80px; bottom: 0;
+      width: 160px;
+      background: var(--secondary);
+      transform: skewX(-4deg);
+      z-index: 3;
+    }
+    .home1-hero-right {
+      position: relative; overflow: hidden;
+    }
+    .home1-hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform 8s;
+    }
+    .home1-hero-right:hover img { transform: scale(1.04); }
+    .home1-hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--secondary) 0%, rgba(26,26,46,0.3) 25%, transparent 60%);
+    }
+    .home1-hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+    }
+    .home1-hero-tag::before {
+      content: '';
+      width: 28px; height: 2px; background: var(--primary); display: block;
+    }
+    .home1-hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.25rem);
+      font-weight: 900; color: #fff; line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+      position: relative; z-index: 4;
+    }
+    .home1-hero-h1 em { font-style: italic; color: var(--primary); }
+    .home1-hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.8;
+      margin-bottom: 2.5rem; max-width: 380px;
+      position: relative; z-index: 4;
+    }
+    .home1-hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      position: relative; z-index: 4;
+    }
+    .home1-hero-stats {
+      display: flex; gap: 2rem;
+      margin-top: 3.5rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      position: relative; z-index: 4;
+    }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; color: #fff; display: block; line-height: 1;
+    }
+    .hero-stat-lbl {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.35rem;
+    }
+    /* Floating chips on hero */
+    .hero-chip {
+      position: absolute; z-index: 10;
+      background: rgba(255,255,255,0.96);
+      border-radius: 1rem; padding: 0.75rem 1rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      animation: chip-float 4s ease-in-out infinite;
+    }
+    .dark .hero-chip { background: rgba(26,26,46,0.9); border: 1px solid rgba(255,255,255,0.08); }
+    @keyframes chip-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ── SECTION: FAQs ── */
+    .faq-numbered .accordion-item {
+      border-radius: 0; border: none;
+      border-bottom: 1px solid var(--border-lt);
+      background: transparent;
+    }
+    .dark .faq-numbered .accordion-item { border-color: var(--border-dk); }
+    .faq-numbered .accordion-btn {
+      padding: 1.5rem 0; font-size: 1rem; font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .home1-hero { grid-template-columns: 1fr; }
+      .home1-hero-left { padding: 5rem 2rem 3rem; }
+      .home1-hero-left::after { display: none; }
+      .home1-hero-right { height: 350px; }
+    }
+    @media (max-width: 480px) {
+      .home1-hero-stats { gap: 1rem; flex-wrap: wrap; }
+      .home1-hero-left { padding: 4rem 1.25rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① HERO — ASYMMETRIC SPLIT (Dark left / Image right)
+══════════════════════════════════════════════════════════ -->
+<section class="home1-hero" id="hero">
+  <div class="noise-overlay" style="z-index:5;"></div>
+
+  <!-- Left column: big text -->
+  <div class="home1-hero-left">
+    <!-- BG watermark number -->
+    <div style="position:absolute;top:-1rem;left:-1.5rem;font-family:'Playfair Display',serif;font-size:18rem;font-weight:900;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;">01</div>
+
+    <div class="home1-hero-tag animate-fade-in">Since 2008 · Chennai's Favourite</div>
+    <h1 class="home1-hero-h1 animate-fade-in" style="animation-delay:0.1s;">
+      Every<br><em>Slice</em><br>Tells a<br>Story.
+    </h1>
+    <p class="home1-hero-sub animate-fade-in" style="animation-delay:0.2s;">
+      Wood-fired in our traditional oven at 450°C. Fresh ingredients sourced daily. Delivered hot in 30 minutes, or ready for your pickup.
+    </p>
+    <div class="home1-hero-btns animate-fade-in" style="animation-delay:0.3s;">
+      <a href="menu.html" class="btn-primary" id="hero-menu-btn">
+        Browse Menu
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html" class="btn-secondary" id="hero-location-btn" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.2);">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Visit Us
+      </a>
+    </div>
+    <div class="home1-hero-stats animate-fade-in" style="animation-delay:0.4s;">
+      <div>
+        <span class="hero-stat-num" data-count="50" data-suffix="+">50+</span>
+        <div class="hero-stat-lbl">Menu Items</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+      <div>
+        <span class="hero-stat-num" data-count="15000" data-suffix="+">15k+</span>
+        <div class="hero-stat-lbl">Customers Served</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+      <div>
+        <span class="hero-stat-num">30m</span>
+        <div class="hero-stat-lbl">Avg Delivery</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+      <div>
+        <span class="hero-stat-num">4.8★</span>
+        <div class="hero-stat-lbl">Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right column: food photo -->
+  <div class="home1-hero-right">
+    <div class="home1-hero-right-overlay"></div>
+    <img src="assets/images/hero_pizza.png" alt="Signature wood-fired pizza at Slice & Dice">
+
+    <!-- Floating rating chip -->
+    <div class="hero-chip" style="top:15%;right:8%;animation-delay:0s;" id="hero-chip-rating">
+      <div style="width:36px;height:36px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;">⭐</div>
+      <div>
+        <div style="font-weight:800;font-size:0.82rem;color:var(--secondary);">4.8 / 5</div>
+        <div style="font-size:0.62rem;color:#6B6B8A;font-weight:600;">3,200+ reviews</div>
+      </div>
+    </div>
+
+    <!-- Floating delivery chip -->
+    <div class="hero-chip" style="bottom:22%;right:6%;animation-delay:2s;" id="hero-chip-delivery">
+      <div style="width:36px;height:36px;background:rgba(232,52,28,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div style="font-weight:800;font-size:0.82rem;color:var(--secondary);">30 Min Delivery</div>
+        <div style="font-size:0.62rem;color:#6B6B8A;font-weight:600;">Guaranteed hot</div>
+      </div>
+    </div>
+
+    <!-- Floating badge -->
+    <div style="position:absolute;top:8%;left:5%;z-index:10;background:var(--primary);color:#fff;font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:99px;box-shadow:var(--shadow-red);">
+      Wood-Fired 🔥
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② MARQUEE TICKER BAND
+══════════════════════════════════════════════════════════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-content" id="mq1">
+      <span class="marquee-item">🍕 Wood-Fired Pizzas <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍔 Smash Burgers <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍟 Crispy Fast Bites <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🥤 Fresh Coolers <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍰 Warm Desserts <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🎁 Combo Deals <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛵 30-Min Delivery <span class="marquee-dot"></span></span>
+      <span class="marquee-item">📍 T. Nagar, Chennai <span class="marquee-dot"></span></span>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <span class="marquee-item">🍕 Wood-Fired Pizzas <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍔 Smash Burgers <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍟 Crispy Fast Bites <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🥤 Fresh Coolers <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🍰 Warm Desserts <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🎁 Combo Deals <span class="marquee-dot"></span></span>
+      <span class="marquee-item">🛵 30-Min Delivery <span class="marquee-dot"></span></span>
+      <span class="marquee-item">📍 T. Nagar, Chennai <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ③ FEATURED MENU — BENTO GRID
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="featured-menu">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
+      <div>
+        <div class="section-label">Our Menu</div>
+        <h2 class="section-title" style="max-width:400px;line-height:1.1;">Made Fresh,<br>Every Single Order</h2>
+      </div>
+      <div style="max-width:300px;text-align:right;">
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem;">50+ dishes crafted from local ingredients. No freezers. No shortcuts.</p>
+        <a href="menu.html" class="btn-secondary" style="font-size:0.75rem;">See Full Menu →</a>
+      </div>
+    </div>
+
+    <div class="bento-grid reveal">
+      <!-- FEATURE: BBQ Pizza -->
+      <div class="bento-feature">
+        <img src="assets/images/menu_pizza_bbq.png" alt="BBQ Chicken Pizza" class="bento-img">
+        <div class="bento-overlay"></div>
+        <div class="bento-content">
+          <span class="bento-tag">🏆 Chef's Pick</span>
+          <div class="bento-title">BBQ Chicken<br>Pizza</div>
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.65);margin:0.6rem 0 1rem;line-height:1.6;">Smoky BBQ sauce · Grilled chicken · Jalapeño · Melted cheddar on stone-baked crust.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div class="bento-price">From ₹349</div>
+            <a href="menu.html" class="btn-primary" style="padding:0.6rem 1.25rem;font-size:0.75rem;" id="bento-order-1">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small: Smash Burger -->
+      <div class="bento-sm-top">
+        <img src="assets/images/menu_burger.png" alt="Double Smash Burger" class="bento-img">
+        <div class="bento-overlay"></div>
+        <div class="bento-content">
+          <span class="bento-tag" style="background:var(--accent);color:var(--secondary);">🔥 Hot Deal</span>
+          <div class="bento-title">Double Smash Burger</div>
+          <div class="bento-price" style="margin-top:0.3rem;">₹229</div>
+        </div>
+      </div>
+
+      <!-- Small: Lava Cake -->
+      <div class="bento-sm-bottom">
+        <img src="assets/images/menu_dessert.png" alt="Chocolate Lava Cake" class="bento-img">
+        <div class="bento-overlay"></div>
+        <div class="bento-content">
+          <span class="bento-tag" style="background:#7c3aed;">✨ New</span>
+          <div class="bento-title">Chocolate Lava Cake</div>
+          <div class="bento-price" style="margin-top:0.3rem;">₹149</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary row: horizontal cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem;" class="stagger-container">
+      <div class="menu-horiz-card stagger-item">
+        <img src="assets/images/menu_veggie_pizza.png" alt="Veggie Pizza" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Garden Veggie Pizza</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Bell peppers, mushrooms, olives, feta, herb oil.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
+            <span style="font-size:1rem;font-weight:900;color:var(--primary);">₹299</span>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-horiz-card stagger-item">
+        <img src="assets/images/menu_fries_wings.png" alt="Buffalo Wings" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Buffalo Wings (8pc)</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Crispy wings, buffalo sauce, ranch dip.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
+            <span style="font-size:1rem;font-weight:900;color:var(--primary);">₹199</span>
+            <span class="food-card-badge badge-nonveg">● Non-Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-horiz-card stagger-item">
+        <img src="assets/images/menu_drinks.png" alt="Signature Coolers" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Signature Coolers</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Watermelon Mint, Mango Burst, Lemonade.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
+            <span style="font-size:1rem;font-weight:900;color:var(--primary);">₹89</span>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ④ STATS BAR — Full dark, massive numbers
+══════════════════════════════════════════════════════════ -->
+<div class="stats-bar" id="stats">
+  <div class="noise-overlay"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-label" style="color:var(--accent);background:rgba(247,183,49,0.12);border-color:rgba(247,183,49,0.25);">By the Numbers</div>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.35);margin-top:0.75rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">15 years of flavour, thousands of smiles</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-item">
+        <span class="big-num"><span data-count="500000" data-suffix="+">500k+</span></span>
+        <div class="stat-bar-label">Pizzas Served</div>
+        <div class="stat-bar-desc">Since 2008</div>
+      </div>
+      <div class="stats-item">
+        <span class="big-num"><span data-count="15000" data-suffix="+">15k+</span></span>
+        <div class="stat-bar-label">Happy Customers</div>
+        <div class="stat-bar-desc">And growing daily</div>
+      </div>
+      <div class="stats-item">
+        <span class="big-num">4.8<span style="color:var(--accent);">★</span></span>
+        <div class="stat-bar-label">Customer Rating</div>
+        <div class="stat-bar-desc">3,200+ reviews</div>
+      </div>
+      <div class="stats-item">
+        <span class="big-num">30<span style="color:var(--primary);">m</span></span>
+        <div class="stat-bar-label">Delivery Time</div>
+        <div class="stat-bar-desc">Guaranteed hot</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑤ COMBO DEALS — ZIGZAG EDITORIAL LAYOUT
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="combo-deals" style="padding-top:0;padding-bottom:0;">
+  <div style="margin-bottom:4rem;padding-top:5rem;" class="container">
+    <div class="text-center reveal">
+      <div class="section-label mx-auto">Value Combos</div>
+      <h2 class="section-title">More for Less.<br>Always.</h2>
+    </div>
+  </div>
+
+  <!-- Zigzag combo 1 -->
+  <div class="zigzag-row reveal">
+    <div class="zigzag-img-side">
+      <img src="assets/images/combo_deal.png" alt="Family Feast combo">
+    </div>
+    <div class="zigzag-text-side">
+      <span class="zigzag-number">01</span>
+      <div class="zigzag-save-badge">Save ₹120</div>
+      <h3 class="zigzag-title">Family Feast</h3>
+      <p class="zigzag-includes">2 Large Pizzas &nbsp;+&nbsp; 8 Buffalo Wings &nbsp;+&nbsp; 4 Signature Drinks &nbsp;+&nbsp; Garlic Bread</p>
+      <div class="zigzag-pricing">
+        <span class="zigzag-orig">₹1,020</span>
+        <span class="zigzag-price">₹899</span>
+      </div>
+      <a href="contact.html" class="btn-primary" id="combo-family-order">Order This Combo</a>
+    </div>
+  </div>
+
+  <!-- Zigzag combo 2 (reversed) -->
+  <div class="zigzag-row reverse reveal">
+    <div class="zigzag-img-side">
+      <img src="assets/images/hero_pizza.png" alt="Date Night combo">
+    </div>
+    <div class="zigzag-text-side">
+      <span class="zigzag-number">02</span>
+      <div class="zigzag-save-badge" style="background:var(--accent);color:var(--secondary);">Most Popular</div>
+      <h3 class="zigzag-title">Date Night Special</h3>
+      <p class="zigzag-includes">1 Medium Pizza &nbsp;+&nbsp; 2 Smash Burgers &nbsp;+&nbsp; 2 Drinks &nbsp;+&nbsp; Chocolate Lava Cake</p>
+      <div class="zigzag-pricing">
+        <span class="zigzag-orig">₹760</span>
+        <span class="zigzag-price">₹649</span>
+      </div>
+      <a href="contact.html" class="btn-primary" id="combo-date-order">Order This Combo</a>
+    </div>
+  </div>
+
+  <!-- Zigzag combo 3 -->
+  <div class="zigzag-row reveal">
+    <div class="zigzag-img-side">
+      <img src="assets/images/menu_burger.png" alt="Solo Cravings combo">
+    </div>
+    <div class="zigzag-text-side">
+      <span class="zigzag-number">03</span>
+      <div class="zigzag-save-badge">Save ₹50</div>
+      <h3 class="zigzag-title">Solo Cravings</h3>
+      <p class="zigzag-includes">1 Small Pizza &nbsp;+&nbsp; 1 Smash Burger &nbsp;+&nbsp; 1 Drink &nbsp;+&nbsp; Loaded Fries</p>
+      <div class="zigzag-pricing">
+        <span class="zigzag-orig">₹430</span>
+        <span class="zigzag-price">₹379</span>
+      </div>
+      <a href="contact.html" class="btn-primary" id="combo-solo-order">Order This Combo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑥ LIMITED-TIME OFFER — BOLD SPLIT with diagonal
+══════════════════════════════════════════════════════════ -->
+<section id="limited-offer" class="reveal">
+  <div class="bold-split">
+    <!-- Left: offer text -->
+    <div class="bold-split-left">
+      <div class="bg-orb" style="width:250px;height:250px;background:rgba(255,255,255,0.08);top:-80px;left:-80px;filter:blur(60px);position:absolute;"></div>
+      <div style="position:relative;z-index:2;">
+        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;">
+          <span class="pulse-dot"></span> Limited Time Only
+        </div>
+        <div class="offer-headline">30% OFF<br>All Large<br>Pizzas</div>
+        <p class="offer-sub">Valid for dine-in &amp; takeaway today only. Use code at checkout or mention it while ordering.</p>
+        <div class="bold-split-code" id="offer-code-display">BIGSLICE</div>
+        <a href="menu.html" class="btn-primary" style="background:#fff;color:var(--primary);position:relative;z-index:2;" id="offer-cta-btn">
+          Grab This Deal
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: countdown -->
+    <div class="bold-split-right">
+      <div class="noise-overlay"></div>
+      <div style="position:relative;z-index:2;text-align:center;">
+        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Offer Expires In</div>
+        <div class="countdown-grid" id="offer-countdown" style="justify-content:center;">
+          <div class="countdown-block"><div class="countdown-num" data-days>08</div><div class="countdown-label">Days</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block"><div class="countdown-num" data-hours>12</div><div class="countdown-label">Hrs</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block"><div class="countdown-num" data-mins>45</div><div class="countdown-label">Min</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-block"><div class="countdown-num" data-secs>00</div><div class="countdown-label">Sec</div></div>
+        </div>
+        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.7;">
+            Valid at Slice &amp; Dice T. Nagar only.<br>Cannot be combined with other offers.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑦ HOW TO ORDER — NUMBERED STEP FLOW
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="ordering">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">Simple Process</div>
+      <h2 class="section-title">Order in<br><span class="gradient-text">3 Easy Steps</span></h2>
+    </div>
+    <div class="steps-flow" style="margin-top:3rem;">
+      <div class="step-item reveal">
+        <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
+          <div class="step-num-wrap" id="step-1-num">1</div>
+          <div class="step-watermark">1</div>
+        </div>
+        <div class="step-title">Pick Your Favourites</div>
+        <p class="step-desc">Browse our full menu — from classic Margheritas to loaded smash burgers. Mix and match, build your combo.</p>
+      </div>
+      <div class="step-item reveal">
+        <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
+          <div class="step-num-wrap" id="step-2-num" style="background:linear-gradient(135deg,var(--primary),var(--accent));">2</div>
+          <div class="step-watermark">2</div>
+        </div>
+        <div class="step-title">Call or WhatsApp</div>
+        <p class="step-desc">Call us at +91 44 2800 1234 or WhatsApp your order. Confirm delivery address or walk-in time for takeaway.</p>
+      </div>
+      <div class="step-item reveal">
+        <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
+          <div class="step-num-wrap" id="step-3-num">3</div>
+          <div class="step-watermark">3</div>
+        </div>
+        <div class="step-title">Enjoy Your Food!</div>
+        <p class="step-desc">Your fresh, hot food lands in 30 minutes. Dine in our cozy space, pick up, or enjoy at home. Bon appétit!</p>
+      </div>
+    </div>
+
+    <!-- USP strip below steps -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border-lt);" class="stagger-container">
+      <div class="check-item stagger-item">
+        <div class="check-icon" style="width:28px;height:28px;flex-shrink:0;">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="check-text"><strong>FSSAI Certified</strong> hygienic kitchen. Every batch tested for quality.</div>
+      </div>
+      <div class="check-item stagger-item">
+        <div class="check-icon" style="width:28px;height:28px;flex-shrink:0;">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="check-text"><strong>No frozen ingredients.</strong> Dough fermented 72 hours fresh every morning.</div>
+      </div>
+      <div class="check-item stagger-item">
+        <div class="check-icon" style="width:28px;height:28px;flex-shrink:0;">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="check-text"><strong>Free redelivery</strong> if your order arrives cold or incorrect. No questions asked.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑧ LOCATION — FULL MAP with floating glass card
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="location">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">Find Us</div>
+      <h2 class="section-title">Come Visit the Kitchen</h2>
+    </div>
+    <div class="map-full-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0453124800577!2d80.23287!3d13.04038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267133b1c77a3%3A0x6b2f9da8d95d6df8!2sT.%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+        title="Slice & Dice Restaurant Location"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Floating info card -->
+      <div class="map-float-card">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px rgba(232,52,28,0.2);"></div>
+          <span style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:var(--primary);">Open Now · Closes 11PM</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;margin-bottom:1.25rem;">Slice &amp; Dice T. Nagar</h3>
+        <div style="display:flex;flex-direction:column;gap:0.85rem;">
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="margin-top:2px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.83rem;color:var(--text-muted);line-height:1.6;">24 Marina Road, T. Nagar, Chennai 600017</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span style="font-size:0.83rem;color:var(--text-muted);">Mon–Sun: 11:00 AM – 11:00 PM</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+            <a href="tel:+914428001234" style="font-size:0.83rem;font-weight:700;color:var(--primary);">+91 44 2800 1234</a>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;margin-top:1.25rem;font-size:0.78rem;" id="map-directions-btn">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑨ TESTIMONIALS — HORIZONTAL SCROLL CAROUSEL
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="reviews">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;" class="reveal">
+      <div>
+        <div class="section-label">What Customers Say</div>
+        <h2 class="section-title">Loved by<br>Chennai 🧡</h2>
+      </div>
+      <div class="h-scroll-controls">
+        <button class="h-scroll-btn" id="scroll-prev" aria-label="Previous reviews">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
+        </button>
+        <button class="h-scroll-btn" id="scroll-next" aria-label="Next reviews">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="h-scroll-track" id="reviews-track">
+
+      <div class="h-scroll-card featured-review">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai, no contest."</p>
+        <div class="testimonial-author" style="margin-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:rgba(255,255,255,0.2);color:#fff;">RK</div>
+          <div>
+            <div class="testimonial-name">Rajesh Kumar</div>
+            <div class="testimonial-role">Regular · T. Nagar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, piping hot. The lava cake was the highlight."</p>
+        <div class="testimonial-author" style="margin-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">PM</div>
+          <div>
+            <div class="testimonial-name">Priya Meenakshi</div>
+            <div class="testimonial-role">Verified Customer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Visited for dine-in on a Saturday. The atmosphere is warm, staff is genuinely friendly. The Double Smash Burger was enormous and incredibly juicy!"</p>
+        <div class="testimonial-author" style="margin-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AS</div>
+          <div>
+            <div class="testimonial-name">Arun Subramanian</div>
+            <div class="testimonial-role">Food Blogger</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The Paneer Tikka pizza is the best thing I've ever eaten. The chaat masala finish is absolutely brilliant. My whole office orders from here weekly!"</p>
+        <div class="testimonial-author" style="margin-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">KV</div>
+          <div>
+            <div class="testimonial-name">Kavya Venkataraman</div>
+            <div class="testimonial-role">Office Regular · Nungambakkam</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★☆</div>
+        <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a generous ranch dip. Service was fast and the staff remembered our usual order!"</p>
+        <div class="testimonial-author" style="margin-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ea580c,#f97316);">MR</div>
+          <div>
+            <div class="testimonial-name">Mohan Rajan</div>
+            <div class="testimonial-role">Sports Fan · Vadapalani</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER MOUNT ─── -->
+<div id="main-footer"></div>
+
+<!-- ─── BACK TO TOP ─── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<style>
+  section, .stats-bar { scroll-margin-top: 68px; }
+  .home1-hero { scroll-margin-top: 0; }
+
+  @media (max-width: 768px) {
+    .map-full-wrap { height: auto; border-radius: 1rem; overflow: hidden; }
+    .map-full-wrap iframe { height: 320px; }
+    .map-float-card { position: static; width: 100%; border-radius: 0 0 1rem 1rem; box-shadow: none; border-top: none; }
+
+    .bold-split-left, .bold-split-right { padding: 3rem 1.5rem; }
+    .bold-split-left::after { display: none; }
+
+    #reviews-track { padding: 1rem 0.25rem 1.5rem; }
+    .h-scroll-card { flex: 0 0 calc(100vw - 3.5rem); }
+
+    /* Grid fix for horiz card row */
+    section#featured-menu .stagger-container { display: flex; flex-direction: column; }
+    section#featured-menu .menu-horiz-card { grid-template-columns: 120px 1fr; }
+  }
+  @media (max-width: 360px) {
+    .home1-hero-h1 { font-size: 2.5rem; }
+    .home1-hero-left { padding: 3.5rem 1rem 2rem; }
+  }
+</style>
+
+<script src="components.js"></script>
+<script>
+  // Countdown timer
+  (function() {
+    const end = new Date(Date.now() + 8*24*3600000 + 12*3600000 + 45*60000);
+    const pad = n => String(n).padStart(2,'0');
+    const w = document.getElementById('offer-countdown');
+    if (!w) return;
+    function tick() {
+      const d = end - Date.now();
+      if (d <= 0) return;
+      w.querySelector('[data-days]').textContent  = pad(Math.floor(d/86400000));
+      w.querySelector('[data-hours]').textContent = pad(Math.floor((d%86400000)/3600000));
+      w.querySelector('[data-mins]').textContent  = pad(Math.floor((d%3600000)/60000));
+      w.querySelector('[data-secs]').textContent  = pad(Math.floor((d%60000)/1000));
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+
+  // Horizontal scroll controls
+  (function() {
+    const track = document.getElementById('reviews-track');
+    const prev  = document.getElementById('scroll-prev');
+    const next  = document.getElementById('scroll-next');
+    if (!track) return;
+    const scrollBy = 380;
+    prev && prev.addEventListener('click', () => track.scrollBy({ left: -scrollBy, behavior: 'smooth' }));
+    next && next.addEventListener('click', () => track.scrollBy({ left:  scrollBy, behavior: 'smooth' }));
+  })();
+</script>
+</body>
+</html>

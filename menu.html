@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Slice & Dice full menu — Pizzas, Burgers, Bites, Drinks and Desserts. Fresh, made-to-order, in Chennai's favourite pizza restaurant.">
+  <title>Menu | Slice & Dice — Pizza & Fast Food Restaurant</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── STICKY PILL TAB NAV ── */
+    .menu-nav-wrap {
+      position: sticky; top: 68px; z-index: 100;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border-lt);
+      padding: 0.75rem 0;
+      transition: background var(--transition);
+    }
+    .dark .menu-nav-wrap { background: var(--bg-dark); border-color: var(--border-dk); }
+    .menu-nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 1.25rem;
+      display: flex; gap: 0.5rem; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .menu-nav-inner::-webkit-scrollbar { display: none; }
+    .menu-nav-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 99px;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border-lt);
+      background: var(--bg-light);
+      cursor: pointer; white-space: nowrap;
+      transition: all var(--transition); text-decoration: none;
+    }
+    .dark .menu-nav-pill { background: var(--bg-dark-card); border-color: var(--border-dk); color: #9A9AB0; }
+    .menu-nav-pill:hover { color: var(--primary); border-color: var(--primary); background: rgba(232,52,28,0.06); }
+    .menu-nav-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: var(--shadow-red); }
+
+    /* ── SECTION ANCHOR MARKER ── */
+    .menu-section-divider {
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .menu-section-divider h2 {
+      white-space: nowrap; font-size: clamp(1.5rem,3vw,2rem);
+      font-weight: 900; margin-bottom: 0;
+    }
+    .menu-section-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--border-lt), transparent);
+    }
+    .dark .menu-section-line { background: linear-gradient(to right, var(--border-dk), transparent); }
+
+    /* ── FULL-BLEED COMBO FEATURE ── */
+    .menu-combo-feature {
+      position: relative; border-radius: var(--radius-xl); overflow: hidden;
+      min-height: 280px; display: flex; align-items: flex-end;
+      background: var(--secondary);
+    }
+    .menu-combo-feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; transition: transform 0.5s; }
+    .menu-combo-feature:hover img { transform: scale(1.04); }
+    .menu-combo-feature-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.97) 0%, transparent 60%);
+    }
+    .menu-combo-feature-content { position: relative; z-index: 1; padding: 2.5rem; color: #fff; width: 100%; }
+
+    /* ── PRICE LARGE ── */
+    .menu-price-lg {
+      font-size: 1.5rem; font-weight: 900; color: var(--primary);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── DRINK TILE ── */
+    .drink-tile {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--bg-light); border: 1px solid var(--border-lt);
+      border-radius: var(--radius-card); padding: 1rem 1.25rem;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .dark .drink-tile { background: var(--bg-dark-card); border-color: var(--border-dk); }
+    .drink-tile:hover { border-color: var(--primary); box-shadow: var(--shadow-red); transform: translateY(-2px); }
+    .drink-img-sm { width: 56px; height: 56px; border-radius: 0.6rem; object-fit: cover; flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .menu-nav-inner { gap: 0.35rem; padding: 0 1rem; }
+    }
+    @media (max-width: 360px) {
+      .menu-nav-pill { font-size: 0.7rem; padding: 0.45rem 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① PAGE HERO — Bold type on dark
+══════════════════════════════════════════════════════════ -->
+<section style="background:var(--secondary);padding:calc(68px + 4rem) 0 4rem;position:relative;overflow:hidden;" id="menu-hero">
+  <div class="noise-overlay"></div>
+  <div class="bg-orb" style="width:400px;height:400px;background:var(--primary);top:-150px;right:-100px;opacity:0.07;"></div>
+  <div class="container" style="position:relative;z-index:2;text-align:center;">
+    <div class="animate-fade-in">
+      <div class="section-label mx-auto" style="color:var(--accent);background:rgba(247,183,49,0.12);border-color:rgba(247,183,49,0.25);">Our Full Menu</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:0.92;letter-spacing:-0.03em;margin:1.25rem 0;">
+        50+ Dishes.<br><em style="font-style:italic;color:var(--primary);">Zero Compromises.</em>
+      </h1>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:460px;margin:0 auto;line-height:1.8;">Every item made fresh to order. No frozen ingredients. No shortcuts. Ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② STICKY PILL NAVIGATION
+══════════════════════════════════════════════════════════ -->
+<div class="menu-nav-wrap" id="menu-nav-sticky">
+  <div class="menu-nav-inner">
+    <a href="#section-pizza" class="menu-nav-pill active" id="pill-pizza">🍕 Pizzas</a>
+    <a href="#section-burger" class="menu-nav-pill" id="pill-burger">🍔 Burgers</a>
+    <a href="#section-bites" class="menu-nav-pill" id="pill-bites">🍟 Fast Bites</a>
+    <a href="#section-drinks" class="menu-nav-pill" id="pill-drinks">🥤 Drinks</a>
+    <a href="#section-desserts" class="menu-nav-pill" id="pill-desserts">🍰 Desserts</a>
+    <a href="#section-combos" class="menu-nav-pill" id="pill-combos">🎁 Combos</a>
+  </div>
+</div>
+
+<div class="container" style="padding-top:3rem;padding-bottom:5rem;">
+
+  <!-- ══════ PIZZAS ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-pizza">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🍕 Pizzas</span>
+      <h2>Our Pies</h2>
+      <div class="menu-section-line"></div>
+    </div>
+
+    <!-- Feature first (1 large + stacked 2 on right) -->
+    <div class="menu-feature-row reveal" style="margin-bottom:0;">
+      <div class="menu-feature-card">
+        <img src="assets/images/menu_pizza_bbq.png" alt="BBQ Chicken Pizza — Chef's Signature">
+        <div class="bento-overlay"></div>
+        <div class="bento-content">
+          <span class="bento-tag">⭐ Chef's Signature</span>
+          <div class="bento-title" style="font-size:1.75rem;">BBQ Chicken<br>Pizza</div>
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin:0.6rem 0 1rem;line-height:1.6;">Smoky BBQ · Grilled Chicken · Jalapeño · Cheddar · Herb Oil. Available in Small (₹249), Medium (₹309), Large (₹379).</p>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="food-card-badge badge-nonveg">● Non-Veg</span>
+            <span style="font-size:1.35rem;font-weight:900;color:var(--accent);">From ₹249</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-stacked-col">
+        <div class="menu-horiz-card">
+          <img src="assets/images/hero_pizza.png" alt="Classic Margherita" class="menu-horiz-img">
+          <div class="menu-horiz-body">
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Classic Margherita</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">San Marzano tomato · Fresh mozzarella · Basil · EVOO</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
+              <span style="font-size:1rem;font-weight:900;color:var(--primary);">From ₹199</span>
+              <span class="food-card-badge badge-veg">● Veg</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-horiz-card">
+          <img src="assets/images/menu_veggie_pizza.png" alt="Garden Veggie Pizza" class="menu-horiz-img">
+          <div class="menu-horiz-body">
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Garden Veggie</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Bell peppers · Mushrooms · Olives · Feta · Herb oil</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
+              <span style="font-size:1rem;font-weight:900;color:var(--primary);">From ₹229</span>
+              <span class="food-card-badge badge-veg">● Veg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard grid for remaining pizzas -->
+    <div class="grid-3 stagger-container" style="margin-top:1.5rem;">
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_pizza_bbq.png" alt="Pepperoni Overload" class="food-card-img">
+          <span class="food-card-tag">Popular</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Pepperoni Overload</div>
+          <div class="food-card-desc">Double layer of premium pepperoni, mozzarella, parmesan, classic tomato sauce.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">From ₹299</div>
+            <span class="food-card-badge badge-nonveg">● Non-Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_veggie_pizza.png" alt="Paneer Tikka Pizza" class="food-card-img">
+          <span class="food-card-tag gold">Spicy</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Paneer Tikka</div>
+          <div class="food-card-desc">Tandoori paneer, makhani sauce, onion, capsicum, chaat masala finish.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">From ₹249</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/hero_pizza.png" alt="Four Cheese Pizza" class="food-card-img">
+          <span class="food-card-tag">New</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Four Cheese Dream</div>
+          <div class="food-card-desc">Mozzarella, cheddar, parmesan, gorgonzola, honey drizzle, walnuts.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">From ₹329</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ══════ BURGERS ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-burger">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🍔 Burgers</span>
+      <h2>Smash Burgers</h2>
+      <div class="menu-section-line"></div>
+    </div>
+    <!-- All horizontal cards for burgers — different from pizza grid -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;" class="stagger-container">
+      <div class="menu-horiz-card stagger-item" style="min-height:130px;">
+        <img src="assets/images/menu_burger.png" alt="Double Smash Burger" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.25rem;">Double Smash Burger</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">Two smashed beef patties, American cheddar, pickles, special sauce, sesame brioche bun.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <span class="menu-price-lg">₹229</span>
+            <div style="display:flex;gap:0.5rem;">
+              <span class="food-card-badge badge-nonveg">● Non-Veg</span>
+              <span class="food-card-badge badge-popular">Popular</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-horiz-card stagger-item" style="min-height:130px;">
+        <img src="assets/images/menu_burger.png" alt="Chilli Cheese Smash" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.25rem;">Chilli Cheese Smash</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">Double patty, green chilli relish, pepper jack cheese, caramelised onions, sriracha mayo.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <span class="menu-price-lg">₹259</span>
+            <div style="display:flex;gap:0.5rem;">
+              <span class="food-card-badge badge-hot">🌶 Spicy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-horiz-card stagger-item" style="min-height:130px;">
+        <img src="assets/images/menu_burger.png" alt="Crispy Chicken Burger" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.25rem;">Crispy Chicken Burger</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">Buttermilk-marinated crispy chicken thigh, slaw, pickled jalapeño, chipotle mayo.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <span class="menu-price-lg">₹249</span>
+            <span class="food-card-badge badge-nonveg">● Non-Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-horiz-card stagger-item" style="min-height:130px;">
+        <img src="assets/images/menu_veggie_pizza.png" alt="Veggie Smash" class="menu-horiz-img">
+        <div class="menu-horiz-body">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.25rem;">Veggie Smash Burger</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">Chickpea-beetroot patty, avocado spread, lettuce, tomato, garlic aioli.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <span class="menu-price-lg">₹199</span>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ══════ FAST BITES ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-bites">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🍟 Fast Bites</span>
+      <h2>Sides &amp; Bites</h2>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="grid-3 stagger-container">
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_fries_wings.png" alt="Buffalo Wings" class="food-card-img">
+          <span class="food-card-tag">Best Seller</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Buffalo Wings</div>
+          <div class="food-card-desc">Crispy double-fried wings tossed in Frank's RedHot buffalo sauce. 6pc or 12pc.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹159 / ₹279</div>
+            <span class="food-card-badge badge-hot">🌶 Spicy</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_fries_wings.png" alt="Loaded Fries" class="food-card-img">
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Chilli Cheese Fries</div>
+          <div class="food-card-desc">Hand-cut potato fries, chilli con carne, cheddar sauce, sour cream, spring onion.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹149</div>
+            <span class="food-card-badge badge-hot">🌶</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_fries_wings.png" alt="Garlic Bread" class="food-card-img">
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Garlic Bread (6pc)</div>
+          <div class="food-card-desc">Stone-baked bread slices, roasted garlic butter, herb oil, with marinara dip.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹79</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ══════ DRINKS ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-drinks">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🥤 Drinks</span>
+      <h2>Coolers &amp; Drinks</h2>
+      <div class="menu-section-line"></div>
+    </div>
+    <!-- Tile layout — different from burgers and pizzas -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;" class="stagger-container">
+      <div class="drink-tile stagger-item">
+        <img src="assets/images/menu_drinks.png" alt="Watermelon Mint Cooler" class="drink-img-sm">
+        <div>
+          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Watermelon Mint Cooler</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Fresh watermelon, mint, lime, light soda</div>
+        </div>
+        <div style="margin-left:auto;font-weight:900;color:var(--primary);white-space:nowrap;">₹89</div>
+      </div>
+      <div class="drink-tile stagger-item">
+        <img src="assets/images/menu_drinks.png" alt="Mango Burst" class="drink-img-sm">
+        <div>
+          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Mango Burst</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Alphonso mango, cream, chaat masala</div>
+        </div>
+        <div style="margin-left:auto;font-weight:900;color:var(--primary);white-space:nowrap;">₹99</div>
+      </div>
+      <div class="drink-tile stagger-item">
+        <img src="assets/images/menu_drinks.png" alt="Virgin Mojito" class="drink-img-sm">
+        <div>
+          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Virgin Mojito</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Lime, mint, brown sugar, soda water</div>
+        </div>
+        <div style="margin-left:auto;font-weight:900;color:var(--primary);white-space:nowrap;">₹89</div>
+      </div>
+      <div class="drink-tile stagger-item">
+        <img src="assets/images/menu_drinks.png" alt="Classic Cola" class="drink-img-sm">
+        <div>
+          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Soft Drinks</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Coke, Sprite, Limca, Thumbs Up</div>
+        </div>
+        <div style="margin-left:auto;font-weight:900;color:var(--primary);white-space:nowrap;">₹49</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ══════ DESSERTS ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-desserts">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🍰 Desserts</span>
+      <h2>Sweet Endings</h2>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="grid-3 stagger-container">
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_dessert.png" alt="Chocolate Lava Cake" class="food-card-img">
+          <span class="food-card-tag">Must Try</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Chocolate Lava Cake</div>
+          <div class="food-card-desc">Belgian 70% dark chocolate, molten centre, vanilla ice cream, strawberry coulis.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹149</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_dessert.png" alt="Nutella Pizza" class="food-card-img">
+          <span class="food-card-tag gold">Sweet</span>
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Nutella Dessert Pizza</div>
+          <div class="food-card-desc">Warm pizza base, Nutella, sliced banana, crushed walnuts, powdered sugar.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹199</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+      <div class="food-card stagger-item">
+        <div class="food-card-img-wrap">
+          <img src="assets/images/menu_dessert.png" alt="Churros with Dip" class="food-card-img">
+        </div>
+        <div class="food-card-body">
+          <div class="food-card-title">Cinnamon Churros</div>
+          <div class="food-card-desc">Deep-fried churros, cinnamon sugar, warm chocolate dipping sauce.</div>
+          <div class="food-card-footer">
+            <div class="food-card-price">₹129</div>
+            <span class="food-card-badge badge-veg">● Veg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ══════ COMBOS ══════ -->
+  <div style="scroll-margin-top:140px;" id="section-combos">
+    <div class="menu-section-divider reveal">
+      <span class="section-label" style="white-space:nowrap;">🎁 Combos</span>
+      <h2>Value Combos</h2>
+      <div class="menu-section-line"></div>
+    </div>
+    <!-- Full-bleed combo features instead of cards -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;" class="stagger-container">
+      <div class="menu-combo-feature stagger-item">
+        <img src="assets/images/combo_deal.png" alt="Family Feast">
+        <div class="menu-combo-feature-overlay"></div>
+        <div class="menu-combo-feature-content">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Save ₹120</div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:0.35rem;">Family Feast</h3>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);">2 Large Pizzas · 8 Wings · 4 Drinks · Garlic Bread</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:1.25rem;">
+              <div style="text-align:right;">
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">₹1,020</div>
+                <div style="font-size:1.75rem;font-weight:900;color:var(--accent);">₹899</div>
+              </div>
+              <a href="contact.html" class="btn-primary" style="white-space:nowrap;">Order →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-combo-feature stagger-item">
+        <img src="assets/images/hero_pizza.png" alt="Date Night">
+        <div class="menu-combo-feature-overlay"></div>
+        <div class="menu-combo-feature-content">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">⭐ Most Popular</div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:0.35rem;">Date Night Special</h3>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);">1 Medium Pizza · 2 Burgers · 2 Drinks · Lava Cake</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:1.25rem;">
+              <div style="text-align:right;">
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">₹760</div>
+                <div style="font-size:1.75rem;font-weight:900;color:var(--accent);">₹649</div>
+              </div>
+              <a href="contact.html" class="btn-primary" style="white-space:nowrap;">Order →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-footer"></div>
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="components.js"></script>
+<script>
+  // Update active pill on scroll
+  (function() {
+    const sections = ['section-pizza','section-burger','section-bites','section-drinks','section-desserts','section-combos'];
+    const pills = { 'section-pizza':'pill-pizza','section-burger':'pill-burger','section-bites':'pill-bites','section-drinks':'pill-drinks','section-desserts':'pill-desserts','section-combos':'pill-combos' };
+    function update() {
+      const scrollY = window.scrollY + 200;
+      let active = sections[0];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) active = id;
+      }
+      sections.forEach(id => {
+        const pill = document.getElementById(pills[id]);
+        if (pill) pill.classList.toggle('active', id === active);
+      });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Slice & Dice — Our 15-year journey, the team behind the dough, our values, and the awards that prove we mean it.">
+  <title>About Us | Slice & Dice — Pizza & Fast Food Restaurant</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── TALL HERO with diagonal text overlay ── */
+    .about-hero {
+      min-height: 80vh;
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+      padding-top: 68px;
+    }
+    .about-hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .about-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10,0,8,0.92) 0%,
+        rgba(26,26,46,0.75) 45%,
+        rgba(10,0,8,0.9) 100%
+      );
+    }
+    .about-hero-content {
+      position: relative; z-index: 2;
+      padding: 4rem 0 5rem;
+      width: 100%;
+    }
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: flex-end;
+    }
+    .about-hero-year {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 18vw, 16rem);
+      font-weight: 900; line-height: 0.85;
+      color: rgba(255,255,255,0.05);
+      position: absolute; bottom: 2rem; right: 0;
+      pointer-events: none; user-select: none;
+      letter-spacing: -0.04em;
+    }
+
+    /* ── VALUES — gradient border cards ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .about-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── TEAM cards — not grid, but stacked offset ── */
+    .team-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .team-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .dark .team-card { background: var(--bg-dark-card); border-color: var(--border-dk); }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .team-card:nth-child(2) { margin-top: 2rem; }
+    .team-card:nth-child(3) { margin-top: 1rem; }
+    .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform 0.5s; }
+    .team-card:hover .team-img { transform: scale(1.04); }
+    .team-body { padding: 1.5rem; }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.2rem; }
+    .team-role { font-size: 0.72rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .team-bio { font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── AWARDS — Dark horizontal strip ── */
+    .awards-strip {
+      background: var(--secondary);
+      padding: 4rem 0;
+      position: relative; overflow: hidden;
+    }
+    .dark .awards-strip { background: var(--sec-dk); }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .award-item {
+      background: var(--secondary);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: background var(--transition);
+    }
+    .dark .award-item { background: var(--sec-dk); }
+    .award-item:hover { background: rgba(255,255,255,0.04); }
+    .award-emoji { font-size: 2.5rem; display: block; margin-bottom: 0.85rem; }
+    .award-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem; }
+    .award-org { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 768px) {
+      .team-row { grid-template-columns: 1fr; }
+      .team-card:nth-child(2), .team-card:nth-child(3) { margin-top: 0; }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .awards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① TALL HERO — full-bleed photo with layered text
+══════════════════════════════════════════════════════════ -->
+<section class="about-hero" id="about-hero">
+  <img src="assets/images/restaurant_interior.png" alt="Slice & Dice restaurant interior" class="about-hero-bg">
+  <div class="about-hero-overlay"></div>
+  <div class="noise-overlay" style="z-index:3;opacity:0.03;"></div>
+  <span class="about-hero-year">2008</span>
+
+  <div class="about-hero-content">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div class="animate-fade-in">
+          <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <span style="width:30px;height:2px;background:var(--primary);display:block;"></span>
+            Est. 2008 · T. Nagar, Chennai
+          </div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:0.92;letter-spacing:-0.02em;margin-bottom:1.5rem;">
+            15 Years of<br><em style="font-style:italic;color:var(--primary);">Slicing</em><br>Perfection
+          </h1>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#our-story" class="btn-primary" id="about-story-btn">Read Our Story</a>
+            <a href="contact.html" class="btn-secondary" id="about-visit-btn" style="color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.2);">Visit Us →</a>
+          </div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay:0.2s;">
+          <p style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.85;border-left:3px solid var(--primary);padding-left:1.5rem;max-width:420px;">
+            What started as a humble 12-seat spot near T. Nagar has grown into Chennai's most beloved pizza restaurant — but we've never once compromised on what matters: fresh ingredients, a wood-fired oven, and food made with genuine love.
+          </p>
+          <div style="display:flex;gap:3rem;margin-top:2.5rem;">
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#fff;line-height:1;">500k<span style="color:var(--primary);">+</span></div>
+              <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.3rem;">Pizzas Served</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#fff;line-height:1;">3<span style="color:var(--accent);">x</span></div>
+              <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.3rem;">Award Winner</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#fff;line-height:1;">4.8<span style="color:var(--accent);">★</span></div>
+              <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.3rem;">Avg Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② OUR STORY — Split with pull-quote
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="our-story">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal">
+      <div>
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">From a Tiny Oven<br>to Chennai's Heart</h2>
+        <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:1.5rem;">
+          In 2008, Ravi Krishnamurthy — a passionate home cook with a dream and a secondhand wood-fired oven — opened Slice & Dice in a 12-seat room on Marina Road. He had no prior restaurant experience. What he had was an obsession with perfect pizza.
+        </p>
+        <div class="pull-quote">
+          <blockquote>"I didn't want to make Indian pizza. I wanted to make pizza — properly — in India. There's a difference."</blockquote>
+          <cite>— Ravi Krishnamurthy, Founder</cite>
+        </div>
+        <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.85;margin-top:1.5rem;">
+          Word spread fast. Within six months, the queue outside stretched down the street. Today, Slice & Dice serves 500+ customers daily — but every pizza is still made with the same care as that very first Margherita in 2008.
+        </p>
+      </div>
+      <div style="position:relative;">
+        <img src="assets/images/pizza_chef.png" alt="Chef at work in our kitchen" style="width:100%;border-radius:2rem;display:block;box-shadow:var(--shadow-lg);">
+        <!-- Timeline snap -->
+        <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--primary);color:#fff;border-radius:1.25rem;padding:1.5rem;box-shadow:var(--shadow-red);max-width:200px;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;line-height:1;">2008</div>
+          <div style="font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.75);margin-top:0.35rem;">When it all began, 12 seats &amp; one dream</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ③ MILESTONE TIMELINE — Alternating vertical rail
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="timeline">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">Our Journey</div>
+      <h2 class="section-title">The Road to <em style="font-style:italic;color:var(--primary);">Flavour</em></h2>
+    </div>
+
+    <div class="alt-timeline" style="margin-top:3rem;">
+
+      <!-- 2008: Start -->
+      <div class="alt-timeline-item">
+        <div class="alt-timeline-left">
+          <div class="alt-year">2008</div>
+          <div class="alt-title">The First Slice</div>
+          <div class="alt-desc">Ravi opens a 12-seat pizza spot on Marina Road with a secondhand wood-fired oven and ₹80,000 savings.</div>
+        </div>
+        <div class="alt-timeline-center"><div class="alt-timeline-dot"></div></div>
+        <div class="alt-timeline-right" style="padding-top:0.25rem;">
+          <div style="background:var(--bg-light);border:1px solid var(--border-lt);border-radius:1rem;overflow:hidden;box-shadow:var(--shadow-sm);">
+            <img src="assets/images/restaurant_interior.png" alt="Original restaurant" style="width:100%;height:160px;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2011: Expansion -->
+      <div class="alt-timeline-item even">
+        <div class="alt-timeline-left" style="padding-top:0.25rem;">
+          <div style="background:var(--bg-light);border:1px solid var(--border-lt);border-radius:1rem;overflow:hidden;box-shadow:var(--shadow-sm);">
+            <img src="assets/images/delivery_service.png" alt="Delivery launch 2011" style="width:100%;height:160px;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="alt-timeline-center"><div class="alt-timeline-dot"></div></div>
+        <div class="alt-timeline-right">
+          <div class="alt-year">2011</div>
+          <div class="alt-title">Delivery Launched</div>
+          <div class="alt-desc">Slice & Dice expands to home delivery with 2 motorbikes. 30-minute guarantee introduced — and kept ever since.</div>
+        </div>
+      </div>
+
+      <!-- 2015: First Award -->
+      <div class="alt-timeline-item">
+        <div class="alt-timeline-left">
+          <div class="alt-year">2015</div>
+          <div class="alt-title">First Major Award</div>
+          <div class="alt-desc">Wins "Best Independent Pizzeria" at the Chennai Food Awards. The BBQ Chicken pizza named dish of the year.</div>
+        </div>
+        <div class="alt-timeline-center"><div class="alt-timeline-dot"></div></div>
+        <div class="alt-timeline-right" style="display:flex;align-items:center;justify-content:flex-start;padding-top:0.25rem;">
+          <div style="background:var(--primary);color:#fff;border-radius:1.25rem;padding:2rem;text-align:center;width:180px;">
+            <div style="font-size:3rem;margin-bottom:0.5rem;">🏆</div>
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;">Best Pizzeria<br>Chennai 2015</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2019: Renovation -->
+      <div class="alt-timeline-item even">
+        <div class="alt-timeline-left" style="padding-top:0.25rem;">
+          <div style="background:rgba(232,52,28,0.05);border:1px solid rgba(232,52,28,0.15);border-radius:1rem;padding:1.5rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--primary);">60+</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.25rem;">Seats after renovation — 5× the original size</div>
+          </div>
+        </div>
+        <div class="alt-timeline-center"><div class="alt-timeline-dot"></div></div>
+        <div class="alt-timeline-right">
+          <div class="alt-year">2019</div>
+          <div class="alt-title">Full Renovation</div>
+          <div class="alt-desc">Slice & Dice expands to a 60-seat restaurant with a redesigned kitchen, new stone oven, and a dedicated catering wing.</div>
+        </div>
+      </div>
+
+      <!-- 2023: New Record -->
+      <div class="alt-timeline-item">
+        <div class="alt-timeline-left">
+          <div class="alt-year">2023</div>
+          <div class="alt-title">500,000 Pizzas Served</div>
+          <div class="alt-desc">We reach a half-million pizzas milestone. 15k+ loyal customers. Slice Rewards loyalty program launched.</div>
+        </div>
+        <div class="alt-timeline-center"><div class="alt-timeline-dot"></div></div>
+        <div class="alt-timeline-right" style="padding-top:0.25rem;">
+          <div style="background:var(--secondary);color:#fff;border-radius:1.25rem;padding:2rem;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--primary);margin-bottom:0.25rem;">500k+</div>
+            <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.5);">Pizzas served. And counting.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ④ VALUES — Gradient border cards on alternating background
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="values">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">What We Stand For</div>
+      <h2 class="section-title">Our Beliefs</h2>
+    </div>
+    <div class="values-grid">
+      <div class="grad-border-card stagger-item">
+        <div class="grad-border-card-inner">
+          <div style="font-size:2rem;margin-bottom:1rem;">🌿</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;">Always Fresh</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.75;">No freezers. No preservatives. Every ingredient is sourced daily and prepared from scratch each morning.</p>
+        </div>
+      </div>
+      <div class="grad-border-card stagger-item">
+        <div class="grad-border-card-inner">
+          <div style="font-size:2rem;margin-bottom:1rem;">🔥</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;">Craft Over Convenience</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.75;">Our dough ferments 72 hours. Our oven runs at 450°C. We take the slow path because it produces the best results.</p>
+        </div>
+      </div>
+      <div class="grad-border-card stagger-item">
+        <div class="grad-border-card-inner">
+          <div style="font-size:2rem;margin-bottom:1rem;">🤝</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;">Community First</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.75;">We buy locally, hire locally, and give back locally. Our suppliers are Chennai-based farmers and small businesses.</p>
+        </div>
+      </div>
+      <div class="grad-border-card stagger-item">
+        <div class="grad-border-card-inner">
+          <div style="font-size:2rem;margin-bottom:1rem;">♻️</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;">Zero Waste Kitchen</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.75;">We compost, recycle, and minimise single-use plastics. Our packaging is 90% plant-based or recyclable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑤ TEAM — Offset stagger cards
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-alt);" id="team">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-label mx-auto">The People</div>
+      <h2 class="section-title">Meet the Team<br>Behind the Dough</h2>
+    </div>
+    <div class="team-row stagger-container">
+      <div class="team-card stagger-item">
+        <img src="assets/images/pizza_chef.png" alt="Ravi Krishnamurthy — Founder" class="team-img">
+        <div class="team-body">
+          <div class="team-name">Ravi Krishnamurthy</div>
+          <div class="team-role">Founder & Visionary</div>
+          <div class="team-bio">Self-taught pizza maker and the soul of Slice & Dice. Started with one oven, one dream, and a queue that never stopped.</div>
+        </div>
+      </div>
+      <div class="team-card stagger-item">
+        <img src="assets/images/menu_pizza_bbq.png" alt="Chef Anand — Head Chef" class="team-img">
+        <div class="team-body">
+          <div class="team-name">Chef Anand Kumar</div>
+          <div class="team-role">Head Chef · Since 2010</div>
+          <div class="team-bio">Trained in Naples, Chennai-born. Crafts every recipe with Italian discipline and local soul. Guardian of the 72-hour dough ritual.</div>
+        </div>
+      </div>
+      <div class="team-card stagger-item">
+        <img src="assets/images/delivery_service.png" alt="Priya — Operations Head" class="team-img">
+        <div class="team-body">
+          <div class="team-name">Priya Natarajan</div>
+          <div class="team-role">Operations Manager</div>
+          <div class="team-bio">The reason your order arrives in 30 minutes, hot and correct. Runs logistics, quality checks, and the entire delivery fleet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑥ AWARDS — Dark horizontal strip with icon tiles
+══════════════════════════════════════════════════════════ -->
+<div class="awards-strip" id="awards">
+  <div class="noise-overlay"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-4">
+      <div class="section-label" style="color:var(--accent);background:rgba(247,183,49,0.1);border-color:rgba(247,183,49,0.25);">Recognition</div>
+      <h2 class="section-title" style="color:#fff;">Awards &amp; Recognition</h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award-item">
+        <span class="award-emoji">🏆</span>
+        <div class="award-title">Best Independent Pizzeria</div>
+        <div class="award-org">Chennai Food Awards · 2015, 2020</div>
+      </div>
+      <div class="award-item">
+        <span class="award-emoji">⭐</span>
+        <div class="award-title">Top Rated Restaurant</div>
+        <div class="award-org">Google Maps · 4.8 Avg · 3,200+ Reviews</div>
+      </div>
+      <div class="award-item">
+        <span class="award-emoji">🌿</span>
+        <div class="award-title">Best Use of Local Ingredients</div>
+        <div class="award-org">Tamil Nadu Hospitality Awards · 2022</div>
+      </div>
+      <div class="award-item">
+        <span class="award-emoji">🛵</span>
+        <div class="award-title">Fastest Delivery Partner</div>
+        <div class="award-org">Chennai Delivery League · 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑦ CTA BAND — Simple full-width
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--primary);text-align:center;padding:4rem 0;" id="about-cta">
+  <div class="container">
+    <div class="noise-overlay" style="opacity:0.04;"></div>
+    <div style="position:relative;z-index:1;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;margin-bottom:1rem;">Ready to Taste the<br>Slice &amp; Dice Difference?</h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.75);margin-bottom:2rem;">Walk in, call us, or order online — we're ready for you.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="menu.html" class="btn-primary" style="background:#fff;color:var(--primary);" id="about-cta-menu">Browse Menu</a>
+        <a href="contact.html" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.4);" id="about-cta-contact">Find Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="main-footer"></div>
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+<style>
+  section { scroll-margin-top: 68px; }
+  @media (max-width: 768px) {
+    #our-story > .container > div { grid-template-columns: 1fr !important; }
+    .about-hero-year { font-size: 8rem; bottom: 1rem; }
+  }
+  @media (max-width: 360px) {
+    .about-hero-year { display: none; }
+  }
+</style>
+<script src="components.js"></script>
+</body>
+</html>
