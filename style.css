@@ -1240,7 +1240,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .marquee-inner {
   display: flex;
   gap: 0;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 12s linear infinite;
   white-space: nowrap;
 }
 .marquee-content {
@@ -1618,7 +1618,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: reviews-marquee 35s linear infinite;
+  animation: reviews-marquee 15s linear infinite;
 }
 .running-reviews-wrap:hover .running-reviews-track {
   animation-play-state: paused;
