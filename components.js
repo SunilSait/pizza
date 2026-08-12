@@ -48,10 +48,8 @@ const NAV_HTML = `
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </span>
       </button>
-      <!-- Secondary CTA -->
-      <a href="login.html" class="nav-cta-secondary" id="nav-signin-btn">Sign In</a>
       <!-- Primary CTA -->
-      <a href="menu.html" class="nav-cta" id="nav-order-btn">Order Now</a>
+      <a href="login.html" class="nav-cta" id="nav-signin-btn">Sign In</a>
       <!-- Hamburger -->
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -69,8 +67,7 @@ const NAV_HTML = `
     <a href="menu.html"    data-page="menu">Menu</a>
     <a href="services.html" data-page="services">Services</a>
     <a href="contact.html"  data-page="contact">Contact</a>
-    <a href="login.html" style="margin-top:0.5rem; border:1.5px solid var(--border-lt); text-align:center; border-radius:0.65rem; padding:0.85rem 1rem;">Sign In</a>
-    <a href="menu.html" class="nav-mobile-cta">Order Now</a>
+    <a href="login.html" class="nav-mobile-cta">Sign In</a>
   </div>
 </div>
 `;

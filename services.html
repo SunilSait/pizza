@@ -52,43 +52,57 @@
       margin-right: 0.75rem;
     }
 
-    /* ── Process timeline horizontal ── */
+    /* ── Process timeline 1-by-1 ── */
     .order-timeline {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 680px;
+      margin: 3rem auto 0;
       position: relative;
-      gap: 0;
     }
-    .order-timeline::before {
-      content: '';
-      position: absolute; top: 28px;
-      left: 10%; right: 10%;
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
+    .ot-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: left;
+      padding: 1.25rem 1.75rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      z-index: 1;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
-    .ot-item { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+    .dark .ot-item {
+      background: var(--bg-dark-card);
+      border-color: var(--border-dk);
+    }
+    .ot-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
     .ot-dot {
-      width: 56px; height: 56px; border-radius: 50%;
+      width: 54px; height: 54px; border-radius: 50%;
       background: var(--bg-light); border: 2.5px solid var(--primary);
-      color: var(--primary);
+      color: var(--primary); flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.25rem; box-shadow: 0 0 0 6px rgba(232,52,28,0.1);
+      margin: 0; box-shadow: 0 0 0 6px rgba(232,52,28,0.1);
       transition: background var(--transition), color var(--transition);
     }
     .ot-item:hover .ot-dot { background: var(--primary); color: #fff; }
     .dark .ot-dot { background: var(--bg-dark-card); }
-    .ot-title { font-family: 'Playfair Display', serif; font-size: 0.88rem; font-weight: 800; margin-bottom: 0.35rem; }
-    .ot-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.65; }
+    .ot-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .ot-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+    [dir="rtl"] .ot-item { text-align: right; }
 
-    @media (max-width: 1024px) {
-      .order-timeline { grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.5rem; }
-      .order-timeline::before { display: none; }
-    }
     @media (max-width: 768px) {
       .services-hero { grid-template-columns: 1fr; }
       .svc-hero-left { padding: 5rem 1.5rem 3rem; }
       .svc-hero-right { height: 300px; }
-      .order-timeline { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ot-item { padding: 1rem 1.25rem; gap: 1rem; }
     }
   </style>
 </head>
@@ -259,36 +273,46 @@
         <div class="ot-dot">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
         </div>
-        <div class="ot-title">Browse Menu</div>
-        <div class="ot-desc">Check our 50+ item menu. Choose your favourites.</div>
+        <div>
+          <div class="ot-title">Browse Menu</div>
+          <div class="ot-desc">Check our 50+ item menu. Choose your favourites.</div>
+        </div>
       </div>
       <div class="ot-item stagger-item">
         <div class="ot-dot">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
         </div>
-        <div class="ot-title">Place Order</div>
-        <div class="ot-desc">Call or WhatsApp your order. Confirmed in 2 minutes.</div>
+        <div>
+          <div class="ot-title">Place Order</div>
+          <div class="ot-desc">Call or WhatsApp your order. Confirmed in 2 minutes.</div>
+        </div>
       </div>
       <div class="ot-item stagger-item">
         <div class="ot-dot">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         </div>
-        <div class="ot-title">Payment</div>
-        <div class="ot-desc">Cash, UPI, or card — pay what suits you.</div>
+        <div>
+          <div class="ot-title">Payment</div>
+          <div class="ot-desc">Cash, UPI, or card — pay what suits you.</div>
+        </div>
       </div>
       <div class="ot-item stagger-item">
         <div class="ot-dot">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="ot-title">We Prepare</div>
-        <div class="ot-desc">Your food is freshly made — no pre-batches, ever.</div>
+        <div>
+          <div class="ot-title">We Prepare</div>
+          <div class="ot-desc">Your food is freshly made — no pre-batches, ever.</div>
+        </div>
       </div>
       <div class="ot-item stagger-item">
         <div class="ot-dot" style="background:var(--primary);color:#fff;border-color:var(--primary);">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="ot-title">Enjoy!</div>
-        <div class="ot-desc">Hot, fresh, and exactly as ordered. Guaranteed.</div>
+        <div>
+          <div class="ot-title">Enjoy!</div>
+          <div class="ot-desc">Hot, fresh, and exactly as ordered. Guaranteed.</div>
+        </div>
       </div>
     </div>
   </div>
