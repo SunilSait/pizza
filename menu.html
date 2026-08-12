@@ -20,16 +20,14 @@
     }
     .dark .menu-nav-wrap { background: var(--bg-dark); border-color: var(--border-dk); }
     .menu-nav-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 1.25rem;
-      display: flex; gap: 0.5rem; overflow-x: auto;
-      scrollbar-width: none;
+      max-width: 1280px; margin: 0 auto; padding: 0 1rem;
+      display: flex; gap: 0.45rem; flex-wrap: wrap; justify-content: center;
     }
-    .menu-nav-inner::-webkit-scrollbar { display: none; }
     .menu-nav-pill {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.5rem 1.1rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 99px;
-      font-size: 0.78rem; font-weight: 700;
+      font-size: 0.76rem; font-weight: 700;
       color: var(--text-muted);
       border: 1.5px solid var(--border-lt);
       background: var(--bg-light);
@@ -90,10 +88,12 @@
     .drink-img-sm { width: 56px; height: 56px; border-radius: 0.6rem; object-fit: cover; flex-shrink: 0; }
 
     @media (max-width: 768px) {
-      .menu-nav-inner { gap: 0.35rem; padding: 0 1rem; }
+      .menu-nav-inner { gap: 0.35rem; padding: 0 0.5rem; }
+      .menu-nav-pill { font-size: 0.72rem; padding: 0.4rem 0.75rem; }
     }
     @media (max-width: 360px) {
-      .menu-nav-pill { font-size: 0.7rem; padding: 0.45rem 0.85rem; }
+      .menu-nav-inner { gap: 0.25rem; padding: 0 0.25rem; }
+      .menu-nav-pill { font-size: 0.68rem; padding: 0.35rem 0.65rem; }
     }
   </style>
 </head>
@@ -370,8 +370,8 @@
       <h2>Coolers &amp; Drinks</h2>
       <div class="menu-section-line"></div>
     </div>
-    <!-- Tile layout — different from burgers and pizzas -->
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;" class="stagger-container">
+    <!-- Tile layout — responsive grid -->
+    <div class="grid-2 stagger-container">
       <div class="drink-tile stagger-item">
         <img src="assets/images/menu_drinks.png" alt="Watermelon Mint Cooler" class="drink-img-sm">
         <div>
@@ -552,10 +552,11 @@
 
 <script src="components.js"></script>
 <script>
-  // Update active pill on scroll
+  // Update active pill on scroll & scroll pill into view
   (function() {
     const sections = ['section-pizza','section-burger','section-bites','section-drinks','section-desserts','section-combos'];
     const pills = { 'section-pizza':'pill-pizza','section-burger':'pill-burger','section-bites':'pill-bites','section-drinks':'pill-drinks','section-desserts':'pill-desserts','section-combos':'pill-combos' };
+    let currentActive = null;
     function update() {
       const scrollY = window.scrollY + 200;
       let active = sections[0];
@@ -563,10 +564,19 @@
         const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollY) active = id;
       }
-      sections.forEach(id => {
-        const pill = document.getElementById(pills[id]);
-        if (pill) pill.classList.toggle('active', id === active);
-      });
+      if (active !== currentActive) {
+        currentActive = active;
+        sections.forEach(id => {
+          const pill = document.getElementById(pills[id]);
+          if (pill) {
+            const isActive = (id === active);
+            pill.classList.toggle('active', isActive);
+            if (isActive) {
+              pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+          }
+        });
+      }
     }
     window.addEventListener('scroll', update, { passive: true });
     update();

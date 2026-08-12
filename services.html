@@ -81,14 +81,14 @@
     .ot-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.65; }
 
     @media (max-width: 1024px) {
-      .order-timeline { grid-template-columns: repeat(3, 1fr); }
+      .order-timeline { grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.5rem; }
       .order-timeline::before { display: none; }
     }
     @media (max-width: 768px) {
       .services-hero { grid-template-columns: 1fr; }
       .svc-hero-left { padding: 5rem 1.5rem 3rem; }
       .svc-hero-right { height: 300px; }
-      .order-timeline { grid-template-columns: 1fr; }
+      .order-timeline { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
 </head>
@@ -152,7 +152,7 @@
 <!-- ══════════════════════════════════════════════════════════
      ③ SERVICE PANELS — Full-width alternating rows
 ══════════════════════════════════════════════════════════ -->
-<div class="container" style="display:flex;flex-direction:column;gap:2.5rem;padding-bottom:4rem;">
+<div class="container" style="display:flex;flex-direction:column;gap:2.5rem;padding-top:4rem;padding-bottom:4rem;">
   <div id="dine-in">
     <!-- Dine-In Panel -->
     <div class="service-panel reveal">
@@ -326,7 +326,7 @@
       </div>
       <div style="position:relative;">
         <img src="assets/images/services_catering_setup.png" alt="Catering setup by Slice & Dice" style="width:100%;border-radius:2rem;box-shadow:var(--shadow-lg);display:block;">
-        <div style="position:absolute;top:-1.25rem;right:-1.25rem;background:var(--accent);color:var(--secondary);border-radius:1.25rem;padding:1.25rem 1.5rem;box-shadow:0 8px 30px rgba(247,183,49,0.3);">
+        <div style="position:absolute;top:1.25rem;right:1.25rem;background:var(--accent);color:var(--secondary);border-radius:1.25rem;padding:1.1rem 1.35rem;box-shadow:0 8px 30px rgba(0,0,0,0.25);z-index:2;">
           <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;">From</div>
           <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;line-height:1;">₹299</div>
           <div style="font-size:0.65rem;font-weight:700;opacity:0.75;margin-top:0.2rem;">per person</div>

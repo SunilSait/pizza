@@ -2074,6 +2074,13 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
+.cta-about-img-wrap img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
 .cta-about-img-wrap::after {
   content: '';
   position: absolute;
@@ -2177,9 +2184,10 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .cta-contact-wrap img,
   .cta-menu-wrap img,
   .cta-home2-wrap img {
-    max-height: 320px;
+    max-height: 340px;
     width: 100%;
     object-fit: cover;
+    object-position: top center;
     border-radius: var(--radius-lg);
   }
 }
