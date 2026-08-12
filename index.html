@@ -453,7 +453,7 @@
     </div>
 
     <!-- Secondary row: horizontal cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem;" class="stagger-container">
+    <div class="grid-3 menu-horiz-grid stagger-container" style="margin-top:1.25rem;">
       <div class="menu-horiz-card stagger-item">
         <img src="assets/images/menu_veggie_pizza.png" alt="Veggie Pizza" class="menu-horiz-img">
         <div class="menu-horiz-body">
@@ -472,7 +472,7 @@
         <div class="menu-horiz-body">
           <div>
             <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Buffalo Wings (8pc)</div>
-            <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Crispy wings, buffalo sauce, ranch dip.</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Crispy wings, buffalo sauce, ranch and white dip.</div>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
             <span style="font-size:1rem;font-weight:900;color:var(--primary);">₹199</span>
@@ -484,7 +484,7 @@
         <img src="assets/images/menu_drinks.png" alt="Signature Coolers" class="menu-horiz-img">
         <div class="menu-horiz-body">
           <div>
-            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Signature Coolers</div>
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Signature Coolers (1)</div>
             <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.6;">Watermelon Mint, Mango Burst, Lemonade.</div>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.85rem;">
@@ -565,7 +565,7 @@
     <!-- Zigzag combo 2 (reversed) -->
     <div class="zigzag-row reverse reveal">
       <div class="zigzag-img-side">
-        <img src="assets/images/hero_pizza.png" alt="Date Night combo">
+        <img src="assets/images/combo_datenight.png" alt="Date Night combo">
       </div>
       <div class="zigzag-text-side">
         <span class="zigzag-number">02</span>
@@ -583,7 +583,7 @@
     <!-- Zigzag combo 3 -->
     <div class="zigzag-row reveal">
       <div class="zigzag-img-side">
-        <img src="assets/images/menu_burger.png" alt="Solo Cravings combo">
+        <img src="assets/images/combo_solocravings.png" alt="Solo Cravings combo">
       </div>
       <div class="zigzag-text-side">
         <span class="zigzag-number">03</span>
@@ -761,9 +761,9 @@
       <!-- Batch 1 -->
       <div class="h-scroll-card featured-review">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai, no contest."</p>
+        <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai."</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:rgba(255,255,255,0.2);color:#fff;">RK</div>
+          <img src="assets/images/avatar_rajesh.png" alt="Rajesh Kumar" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Rajesh Kumar</div>
             <div class="testimonial-role">Regular · T. Nagar</div>
@@ -773,9 +773,9 @@
 
       <div class="h-scroll-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, piping hot. The lava cake was the highlight."</p>
+        <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, hot. The lava cake was the highlight."</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">PM</div>
+          <img src="assets/images/avatar_priya.png" alt="Priya Meenakshi" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Priya Meenakshi</div>
             <div class="testimonial-role">Verified Customer</div>
@@ -787,7 +787,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Visited for dine-in on a Saturday. The atmosphere is warm, staff is genuinely friendly. The Double Smash Burger was enormous and incredibly juicy!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AS</div>
+          <img src="assets/images/avatar_arun.png" alt="Arun Subramanian" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Arun Subramanian</div>
             <div class="testimonial-role">Food Blogger</div>
@@ -799,7 +799,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"The Paneer Tikka pizza is the best thing I've ever eaten. The chaat masala finish is absolutely brilliant. My whole office orders from here weekly!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">KV</div>
+          <img src="assets/images/avatar_kavya.png" alt="Kavya Venkataraman" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Kavya Venkataraman</div>
             <div class="testimonial-role">Office Regular · Nungambakkam</div>
@@ -809,9 +809,9 @@
 
       <div class="h-scroll-card">
         <div class="stars">★★★★☆</div>
-        <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a generous ranch dip. Service was fast and the staff remembered our usual order!"</p>
+        <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a ranch dip. Service was fast and the staff remembered our usual order!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ea580c,#f97316);">MR</div>
+          <img src="assets/images/avatar_mohan.png" alt="Mohan Rajan" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Mohan Rajan</div>
             <div class="testimonial-role">Sports Fan · Vadapalani</div>
@@ -824,7 +824,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai, no contest."</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:rgba(255,255,255,0.2);color:#fff;">RK</div>
+          <img src="assets/images/avatar_rajesh.png" alt="Rajesh Kumar" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Rajesh Kumar</div>
             <div class="testimonial-role">Regular · T. Nagar</div>
@@ -836,7 +836,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, piping hot. The lava cake was the highlight."</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">PM</div>
+          <img src="assets/images/avatar_priya.png" alt="Priya Meenakshi" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Priya Meenakshi</div>
             <div class="testimonial-role">Verified Customer</div>
@@ -848,7 +848,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Visited for dine-in on a Saturday. The atmosphere is warm, staff is genuinely friendly. The Double Smash Burger was enormous and incredibly juicy!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AS</div>
+          <img src="assets/images/avatar_arun.png" alt="Arun Subramanian" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Arun Subramanian</div>
             <div class="testimonial-role">Food Blogger</div>
@@ -860,7 +860,7 @@
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"The Paneer Tikka pizza is the best thing I've ever eaten. The chaat masala finish is absolutely brilliant. My whole office orders from here weekly!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">KV</div>
+          <img src="assets/images/avatar_kavya.png" alt="Kavya Venkataraman" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Kavya Venkataraman</div>
             <div class="testimonial-role">Office Regular · Nungambakkam</div>
@@ -872,7 +872,7 @@
         <div class="stars">★★★★☆</div>
         <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a generous ranch dip. Service was fast and the staff remembered our usual order!"</p>
         <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ea580c,#f97316);">MR</div>
+          <img src="assets/images/avatar_mohan.png" alt="Mohan Rajan" class="testimonial-avatar-img">
           <div>
             <div class="testimonial-name">Mohan Rajan</div>
             <div class="testimonial-role">Sports Fan · Vadapalani</div>
@@ -908,7 +908,7 @@
         </div>
       </div>
       <div>
-        <img src="assets/images/hero_pizza.png" alt="Wood Fired Pizza" class="cta-home1-img">
+        <img src="assets/images/cta_pizza.png" alt="Wood Fired Pizza" class="cta-home1-img">
       </div>
     </div>
   </div>

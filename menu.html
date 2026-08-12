@@ -101,16 +101,20 @@
 <!-- ══════════════════════════════════════════════════════════
      ① PAGE HERO — Bold type on dark
 ══════════════════════════════════════════════════════════ -->
-<section style="background:var(--secondary);padding:calc(68px + 4rem) 0 4rem;position:relative;overflow:hidden;" id="menu-hero">
+<section style="padding:calc(68px + 4rem) 0 4rem;position:relative;overflow:hidden;min-height:420px;display:flex;align-items:center;" id="menu-hero">
+  <!-- Banner background image -->
+  <img src="assets/images/menu_hero_banner.png" alt="Menu banner food spread"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+  <!-- Dark gradient overlay for text readability -->
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,0,8,0.88) 0%,rgba(26,26,46,0.72) 50%,rgba(10,0,8,0.85) 100%);"></div>
   <div class="noise-overlay"></div>
-  <div class="bg-orb" style="width:400px;height:400px;background:var(--primary);top:-150px;right:-100px;opacity:0.07;"></div>
-  <div class="container" style="position:relative;z-index:2;text-align:center;">
+  <div class="container" style="position:relative;z-index:2;text-align:center;width:100%;">
     <div class="animate-fade-in">
       <div class="section-label mx-auto" style="color:var(--accent);background:rgba(247,183,49,0.12);border-color:rgba(247,183,49,0.25);">Our Full Menu</div>
       <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:0.92;letter-spacing:-0.03em;margin:1.25rem 0;">
         50+ Dishes.<br><em style="font-style:italic;color:var(--primary);">Zero Compromises.</em>
       </h1>
-      <p style="font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:460px;margin:0 auto;line-height:1.8;">Every item made fresh to order. No frozen ingredients. No shortcuts. Ever.</p>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:460px;margin:0 auto;line-height:1.8;">Every item made fresh to order. No frozen ingredients. No shortcuts. Ever.</p>
     </div>
   </div>
 </section>
@@ -142,7 +146,7 @@
     <!-- Feature first (1 large + stacked 2 on right) -->
     <div class="menu-feature-row reveal" style="margin-bottom:0;">
       <div class="menu-feature-card">
-        <img src="assets/images/menu_pizza_bbq.png" alt="BBQ Chicken Pizza — Chef's Signature">
+        <img src="assets/images/menu_bbq_pizza_card.png" alt="BBQ Chicken Pizza — Chef's Signature">
         <div class="bento-overlay"></div>
         <div class="bento-content">
           <span class="bento-tag">⭐ Chef's Signature</span>
@@ -156,7 +160,7 @@
       </div>
       <div class="menu-stacked-col">
         <div class="menu-horiz-card">
-          <img src="assets/images/hero_pizza.png" alt="Classic Margherita" class="menu-horiz-img">
+          <img src="assets/images/menu_margherita_card.png" alt="Classic Margherita" class="menu-horiz-img">
           <div class="menu-horiz-body">
             <div>
               <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Classic Margherita</div>
@@ -169,7 +173,7 @@
           </div>
         </div>
         <div class="menu-horiz-card">
-          <img src="assets/images/menu_veggie_pizza.png" alt="Garden Veggie Pizza" class="menu-horiz-img">
+          <img src="assets/images/menu_garden_veggie_card.png" alt="Garden Veggie Pizza" class="menu-horiz-img">
           <div class="menu-horiz-body">
             <div>
               <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:800;margin-bottom:0.3rem;">Garden Veggie</div>
@@ -188,7 +192,7 @@
     <div class="grid-3 stagger-container" style="margin-top:1.5rem;">
       <div class="food-card stagger-item">
         <div class="food-card-img-wrap">
-          <img src="assets/images/menu_pizza_bbq.png" alt="Pepperoni Overload" class="food-card-img">
+          <img src="assets/images/cta_pizza.png" alt="Pepperoni Overload" class="food-card-img">
           <span class="food-card-tag">Popular</span>
         </div>
         <div class="food-card-body">
@@ -216,7 +220,7 @@
       </div>
       <div class="food-card stagger-item">
         <div class="food-card-img-wrap">
-          <img src="assets/images/hero_pizza.png" alt="Four Cheese Pizza" class="food-card-img">
+          <img src="assets/images/hero_home2.png" alt="Four Cheese Pizza" class="food-card-img">
           <span class="food-card-tag">New</span>
         </div>
         <div class="food-card-body">
