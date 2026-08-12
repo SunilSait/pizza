@@ -790,6 +790,8 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 /* ─── FOOTER ─── */
 .site-footer {
+  position: relative;
+  z-index: 200;
   background: var(--secondary);
   color: rgba(255,255,255,0.75);
   padding-top: 4rem;
