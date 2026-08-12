@@ -211,9 +211,10 @@ function updateThemeIcons(isDark) {
 function toggleDir() {
   const html = document.documentElement;
   const isRTL = html.getAttribute('dir') === 'rtl';
-  html.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
-  localStorage.setItem('sd_dir', isRTL ? 'ltr' : 'rtl');
-  const newLabel = isRTL ? 'LTR' : 'RTL';
+  const newDir = isRTL ? 'ltr' : 'rtl';
+  html.setAttribute('dir', newDir);
+  localStorage.setItem('sd_dir', newDir);
+  const newLabel = newDir.toUpperCase();
   document.querySelectorAll('#nav-dir-btn, #login-dir-btn, #signup-dir-btn, #err-dir-btn, #cs-dir-btn').forEach(el => {
     if (el) el.textContent = newLabel;
   });
@@ -226,15 +227,14 @@ function toggleDir() {
   const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
   if (isDark) document.documentElement.classList.add('dark');
 
-  const savedDir = localStorage.getItem('sd_dir');
-  if (savedDir === 'rtl') {
-    document.documentElement.setAttribute('dir', 'rtl');
-    setTimeout(() => {
-      document.querySelectorAll('#nav-dir-btn, #login-dir-btn, #signup-dir-btn, #err-dir-btn, #cs-dir-btn').forEach(el => {
-        if (el) el.textContent = 'RTL';
-      });
-    }, 50);
-  }
+  const savedDir = localStorage.getItem('sd_dir') || 'ltr';
+  document.documentElement.setAttribute('dir', savedDir);
+  setTimeout(() => {
+    const label = savedDir.toUpperCase();
+    document.querySelectorAll('#nav-dir-btn, #login-dir-btn, #signup-dir-btn, #err-dir-btn, #cs-dir-btn').forEach(el => {
+      if (el) el.textContent = label;
+    });
+  }, 50);
 
   // Update icons after DOM ready
   setTimeout(() => updateThemeIcons(isDark), 50);
@@ -272,13 +272,30 @@ function toggleDir() {
   });
 })();
 
-/* ─── NAV SCROLL EFFECT ─── */
+/* ─── NAV SCROLL EFFECT & HIDE ON SCROLL DOWN ─── */
 (function navScroll() {
-  const nav = document.getElementById('site-nav');
-  if (!nav) return;
-  const check = () => nav.classList.toggle('scrolled', window.scrollY > 20);
-  check();
-  window.addEventListener('scroll', check, { passive: true });
+  let lastScrollY = window.scrollY;
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const nav = document.getElementById('site-nav');
+    const floatControls = document.querySelectorAll('.auth-top-controls, .floating-top-controls');
+
+    const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 15;
+
+    if (nav) {
+      nav.classList.toggle('scrolled', currentScrollY > 20);
+    }
+
+    floatControls.forEach(el => {
+      if (el) el.classList.toggle('controls-hidden', isScrollingDown);
+    });
+
+    lastScrollY = currentScrollY;
+  };
+
+  handleScroll();
+  window.addEventListener('scroll', handleScroll, { passive: true });
 })();
 
 /* ─── BACK TO TOP ─── */
@@ -366,12 +383,14 @@ function toggleDir() {
 function toggleAccordion(btn) {
   const content = btn.nextElementSibling;
   const icon    = btn.querySelector('.acc-icon');
-  const isOpen  = content.classList.contains('open');
+  const isOpen  = content ? content.classList.contains('open') : false;
 
-  const parent = btn.closest('.faq-list') || btn.closest('section') || document;
+  if (!content) return;
+
+  const parent = btn.closest('.faq-line') || btn.closest('.faq-list') || btn.closest('#faq') || btn.closest('section') || document;
   parent.querySelectorAll('.accordion-content.open').forEach(c => {
     c.classList.remove('open');
-    const ic = c.previousElementSibling.querySelector('.acc-icon');
+    const ic = c.previousElementSibling ? c.previousElementSibling.querySelector('.acc-icon') : null;
     if (ic) ic.classList.remove('rotated');
   });
 
@@ -379,6 +398,10 @@ function toggleAccordion(btn) {
     content.classList.add('open');
     if (icon) icon.classList.add('rotated');
   }
+}
+
+function toggleAcc(btn) {
+  toggleAccordion(btn);
 }
 
 /* ─── PASSWORD VISIBILITY TOGGLE ─── */

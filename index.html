@@ -14,7 +14,7 @@
     .home1-hero {
       min-height: 100svh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
       position: relative;
       overflow: hidden;
       padding-top: 68px;
@@ -22,9 +22,11 @@
     .home1-hero-left {
       background: var(--secondary);
       display: flex; flex-direction: column; justify-content: center;
-      padding: 5rem 4rem 5rem 5rem;
+      padding: 5rem 3.5rem 5rem 3.5rem;
       position: relative; overflow: hidden;
       z-index: 2;
+      box-sizing: border-box;
+      width: 100%;
     }
     .home1-hero-left::after {
       content: '';
@@ -39,9 +41,8 @@
     }
     .home1-hero-right img {
       width: 100%; height: 100%; object-fit: cover;
-      display: block; transition: transform 8s;
+      display: block;
     }
-    .home1-hero-right:hover img { transform: scale(1.04); }
     .home1-hero-right-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to right, var(--secondary) 0%, rgba(26,26,46,0.3) 25%, transparent 60%);
@@ -57,16 +58,18 @@
     }
     .home1-hero-h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5.25rem);
-      font-weight: 900; color: #fff; line-height: 0.95;
+      font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+      font-weight: 900; color: #fff; line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 1.75rem;
+      white-space: normal;
+      word-break: break-word;
+      margin-bottom: 1.5rem;
       position: relative; z-index: 4;
     }
     .home1-hero-h1 em { font-style: italic; color: var(--primary); }
     .home1-hero-sub {
       font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.8;
-      margin-bottom: 2.5rem; max-width: 380px;
+      margin-bottom: 2.5rem; max-width: 480px;
       position: relative; z-index: 4;
     }
     .home1-hero-btns {
@@ -78,6 +81,8 @@
       margin-top: 3.5rem; padding-top: 2.5rem;
       border-top: 1px solid rgba(255,255,255,0.08);
       position: relative; z-index: 4;
+      width: 100%;
+      box-sizing: border-box;
     }
     .hero-stat-num {
       font-family: 'Playfair Display', serif;
@@ -87,16 +92,97 @@
       font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.35rem;
     }
+    /* Hero split grid & Promo Card */
+    .hero-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 1200px) {
+      .hero-split-grid { grid-template-columns: 1fr; }
+    }
+    .hero-promo-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 4;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .hero-promo-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232, 52, 28, 0.4);
+    }
+    .hero-promo-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); background: rgba(247, 183, 49, 0.12); border: 1px solid rgba(247, 183, 49, 0.25);
+      padding: 0.25rem 0.65rem; border-radius: 99px; margin-bottom: 0.85rem;
+    }
+    .hero-promo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 0.4rem;
+    }
+    .hero-promo-desc {
+      font-size: 0.78rem; color: rgba(255, 255, 255, 0.6); line-height: 1.6; margin-bottom: 1rem;
+    }
+    .hero-promo-price-row {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+    }
+    .hero-promo-price {
+      font-size: 1.35rem; font-weight: 900; color: var(--primary); font-family: 'DM Sans', sans-serif;
+    }
+    .hero-promo-tag {
+      font-size: 0.65rem; font-weight: 800; color: #fff; background: var(--primary);
+      padding: 0.2rem 0.55rem; border-radius: 0.4rem; letter-spacing: 0.05em;
+    }
+    .hero-promo-btn {
+      display: flex; align-items: center; justify-content: center; width: 100%;
+      background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.78rem; font-weight: 700;
+      padding: 0.65rem 1rem; border-radius: 0.75rem; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .hero-promo-btn:hover {
+      background: var(--primary); border-color: var(--primary); color: #fff;
+    }
     /* Floating chips on hero */
     .hero-chip {
       position: absolute; z-index: 10;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.95);
       border-radius: 1rem; padding: 0.75rem 1rem;
       display: flex; align-items: center; gap: 0.6rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       animation: chip-float 4s ease-in-out infinite;
     }
-    .dark .hero-chip { background: rgba(26,26,46,0.9); border: 1px solid rgba(255,255,255,0.08); }
+    .hero-chip-title {
+      font-weight: 800; font-size: 0.82rem; color: #1A1A2E;
+    }
+    .hero-chip-sub {
+      font-size: 0.62rem; color: #555570; font-weight: 600;
+    }
+    .dark .hero-chip {
+      background: rgba(26,26,46,0.92);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .dark .hero-chip .hero-chip-title {
+      color: #FFFFFF !important;
+    }
+    .dark .hero-chip .hero-chip-sub {
+      color: rgba(255,255,255,0.75) !important;
+    }
     @keyframes chip-float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -113,15 +199,71 @@
       padding: 1.5rem 0; font-size: 1rem; font-weight: 700;
     }
 
-    @media (max-width: 900px) {
-      .home1-hero { grid-template-columns: 1fr; }
-      .home1-hero-left { padding: 5rem 2rem 3rem; }
-      .home1-hero-left::after { display: none; }
-      .home1-hero-right { height: 350px; }
+    /* Lock root overflow-x to prevent any right blank strip on mobile */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+
+    /* Consolidated Responsive Hero Media Queries */
+    @media (max-width: 992px) {
+      .home1-hero {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+      .home1-hero-left {
+        padding: 3rem 1.25rem 2.5rem 1.25rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .home1-hero-left::after {
+        display: none !important;
+        content: none !important;
+      }
+      .home1-hero-h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+      }
+      .home1-hero-sub { max-width: 100% !important; }
+      .hero-split-grid { width: 100% !important; grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .hero-promo-card { width: 100% !important; box-sizing: border-box !important; }
+      .home1-hero-right { height: 280px !important; width: 100% !important; overflow: hidden !important; }
+      .home1-hero-stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem 1rem !important;
+        margin-top: 2.25rem !important;
+        padding-top: 1.75rem !important;
+        text-align: center !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .home1-hero-stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem 1rem !important;
+        margin-top: 2.25rem !important;
+        padding-top: 1.75rem !important;
+        text-align: center !important;
+      }
+      .hero-stat-box {
+        align-items: center !important;
+      }
+      .hero-stat-box::after {
+        display: none !important;
+      }
+      .hero-stat-num {
+        font-size: 1.85rem !important;
+      }
     }
     @media (max-width: 480px) {
-      .home1-hero-stats { gap: 1rem; flex-wrap: wrap; }
-      .home1-hero-left { padding: 4rem 1.25rem 2rem; }
+      .home1-hero-left { padding: 2rem 1.25rem 1.75rem 1.25rem !important; }
+      .home1-hero-right { height: 220px !important; }
     }
   </style>
 </head>
@@ -134,45 +276,60 @@
 <section class="home1-hero" id="hero">
   <div class="noise-overlay" style="z-index:5;"></div>
 
-  <!-- Left column: big text -->
+  <!-- Left column: big text & promo card -->
   <div class="home1-hero-left">
-    <!-- BG watermark number -->
-    <div style="position:absolute;top:-1rem;left:-1.5rem;font-family:'Playfair Display',serif;font-size:18rem;font-weight:900;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;">01</div>
-
     <div class="home1-hero-tag animate-fade-in">Since 2008 · Chennai's Favourite</div>
     <h1 class="home1-hero-h1 animate-fade-in" style="animation-delay:0.1s;">
-      Every<br><em>Slice</em><br>Tells a<br>Story.
+      Every <em>Slice</em> Tells a Story.
     </h1>
-    <p class="home1-hero-sub animate-fade-in" style="animation-delay:0.2s;">
-      Wood-fired in our traditional oven at 450°C. Fresh ingredients sourced daily. Delivered hot in 30 minutes, or ready for your pickup.
-    </p>
-    <div class="home1-hero-btns animate-fade-in" style="animation-delay:0.3s;">
-      <a href="menu.html" class="btn-primary" id="hero-menu-btn">
-        Browse Menu
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-      </a>
-      <a href="contact.html" class="btn-secondary" id="hero-location-btn" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.2);">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Visit Us
-      </a>
+
+    <div class="hero-split-grid">
+      <div>
+        <p class="home1-hero-sub animate-fade-in" style="animation-delay:0.2s;">
+          Wood-fired in our traditional oven at 450°C. Fresh ingredients sourced daily. Delivered hot in 30 minutes, or ready for your pickup.
+        </p>
+        <div class="home1-hero-btns animate-fade-in" style="animation-delay:0.3s;">
+          <a href="menu.html" class="btn-primary" id="hero-menu-btn">
+            Browse Menu
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="btn-secondary" id="hero-location-btn" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.2);">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Visit Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side promo card filling the empty hero space -->
+      <div class="hero-promo-card animate-fade-in" style="animation-delay:0.35s;">
+        <div class="hero-promo-badge">
+          <span class="pulse-dot"></span> Today's Special
+        </div>
+        <div class="hero-promo-title">Truffle Margherita</div>
+        <p class="hero-promo-desc">Fresh buffalo mozzarella, black truffle oil, San Marzano tomatoes &amp; basil.</p>
+        <div class="hero-promo-price-row">
+          <span class="hero-promo-price">₹349</span>
+          <span class="hero-promo-tag">20% OFF</span>
+        </div>
+        <a href="menu.html" class="hero-promo-btn">
+          Order This Special →
+        </a>
+      </div>
     </div>
     <div class="home1-hero-stats animate-fade-in" style="animation-delay:0.4s;">
-      <div>
+      <div class="hero-stat-box">
         <span class="hero-stat-num" data-count="50" data-suffix="+">50+</span>
         <div class="hero-stat-lbl">Menu Items</div>
       </div>
-      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
-      <div>
-        <span class="hero-stat-num" data-count="15000" data-suffix="+">15k+</span>
+      <div class="hero-stat-box">
+        <span class="hero-stat-num" data-count="15" data-suffix="k+">15k+</span>
         <div class="hero-stat-lbl">Customers Served</div>
       </div>
-      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
-      <div>
+      <div class="hero-stat-box">
         <span class="hero-stat-num">30m</span>
         <div class="hero-stat-lbl">Avg Delivery</div>
       </div>
-      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
-      <div>
+      <div class="hero-stat-box">
         <span class="hero-stat-num">4.8★</span>
         <div class="hero-stat-lbl">Rating</div>
       </div>
@@ -186,21 +343,21 @@
 
     <!-- Floating rating chip -->
     <div class="hero-chip" style="top:15%;right:8%;animation-delay:0s;" id="hero-chip-rating">
-      <div style="width:36px;height:36px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;">⭐</div>
+      <div style="width:36px;height:36px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">⭐</div>
       <div>
-        <div style="font-weight:800;font-size:0.82rem;color:var(--secondary);">4.8 / 5</div>
-        <div style="font-size:0.62rem;color:#6B6B8A;font-weight:600;">3,200+ reviews</div>
+        <div class="hero-chip-title">4.8 / 5</div>
+        <div class="hero-chip-sub">3,200+ reviews</div>
       </div>
     </div>
 
     <!-- Floating delivery chip -->
     <div class="hero-chip" style="bottom:22%;right:6%;animation-delay:2s;" id="hero-chip-delivery">
-      <div style="width:36px;height:36px;background:rgba(232,52,28,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div style="width:36px;height:36px;background:rgba(232,52,28,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div>
-        <div style="font-weight:800;font-size:0.82rem;color:var(--secondary);">30 Min Delivery</div>
-        <div style="font-size:0.62rem;color:#6B6B8A;font-weight:600;">Guaranteed hot</div>
+        <div class="hero-chip-title">30 Min Delivery</div>
+        <div class="hero-chip-sub">Guaranteed hot</div>
       </div>
     </div>
 
@@ -352,12 +509,12 @@
     </div>
     <div class="stats-grid">
       <div class="stats-item">
-        <span class="big-num"><span data-count="500000" data-suffix="+">500k+</span></span>
+        <span class="big-num"><span data-count="500" data-suffix="k+">500k+</span></span>
         <div class="stat-bar-label">Pizzas Served</div>
         <div class="stat-bar-desc">Since 2008</div>
       </div>
       <div class="stats-item">
-        <span class="big-num"><span data-count="15000" data-suffix="+">15k+</span></span>
+        <span class="big-num"><span data-count="15" data-suffix="k+">15k+</span></span>
         <div class="stat-bar-label">Happy Customers</div>
         <div class="stat-bar-desc">And growing daily</div>
       </div>
@@ -386,100 +543,101 @@
     </div>
   </div>
 
-  <!-- Zigzag combo 1 -->
-  <div class="zigzag-row reveal">
-    <div class="zigzag-img-side">
-      <img src="assets/images/combo_deal.png" alt="Family Feast combo">
-    </div>
-    <div class="zigzag-text-side">
-      <span class="zigzag-number">01</span>
-      <div class="zigzag-save-badge">Save ₹120</div>
-      <h3 class="zigzag-title">Family Feast</h3>
-      <p class="zigzag-includes">2 Large Pizzas &nbsp;+&nbsp; 8 Buffalo Wings &nbsp;+&nbsp; 4 Signature Drinks &nbsp;+&nbsp; Garlic Bread</p>
-      <div class="zigzag-pricing">
-        <span class="zigzag-orig">₹1,020</span>
-        <span class="zigzag-price">₹899</span>
+  <div class="container" style="display:flex;flex-direction:column;gap:2.5rem;padding-bottom:5rem;">
+    <!-- Zigzag combo 1 -->
+    <div class="zigzag-row reveal">
+      <div class="zigzag-img-side">
+        <img src="assets/images/combo_deal.png" alt="Family Feast combo">
       </div>
-      <a href="contact.html" class="btn-primary" id="combo-family-order">Order This Combo</a>
+      <div class="zigzag-text-side">
+        <span class="zigzag-number">01</span>
+        <div class="zigzag-save-badge">Save ₹120</div>
+        <h3 class="zigzag-title">Family Feast</h3>
+        <p class="zigzag-includes">2 Large Pizzas &nbsp;+&nbsp; 8 Buffalo Wings &nbsp;+&nbsp; 4 Signature Drinks &nbsp;+&nbsp; Garlic Bread</p>
+        <div class="zigzag-pricing">
+          <span class="zigzag-orig">₹1,020</span>
+          <span class="zigzag-price">₹899</span>
+        </div>
+        <a href="contact.html" class="btn-primary" id="combo-family-order">Order This Combo</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Zigzag combo 2 (reversed) -->
-  <div class="zigzag-row reverse reveal">
-    <div class="zigzag-img-side">
-      <img src="assets/images/hero_pizza.png" alt="Date Night combo">
-    </div>
-    <div class="zigzag-text-side">
-      <span class="zigzag-number">02</span>
-      <div class="zigzag-save-badge" style="background:var(--accent);color:var(--secondary);">Most Popular</div>
-      <h3 class="zigzag-title">Date Night Special</h3>
-      <p class="zigzag-includes">1 Medium Pizza &nbsp;+&nbsp; 2 Smash Burgers &nbsp;+&nbsp; 2 Drinks &nbsp;+&nbsp; Chocolate Lava Cake</p>
-      <div class="zigzag-pricing">
-        <span class="zigzag-orig">₹760</span>
-        <span class="zigzag-price">₹649</span>
+    <!-- Zigzag combo 2 (reversed) -->
+    <div class="zigzag-row reverse reveal">
+      <div class="zigzag-img-side">
+        <img src="assets/images/hero_pizza.png" alt="Date Night combo">
       </div>
-      <a href="contact.html" class="btn-primary" id="combo-date-order">Order This Combo</a>
+      <div class="zigzag-text-side">
+        <span class="zigzag-number">02</span>
+        <div class="zigzag-save-badge" style="background:var(--accent);color:var(--secondary);">Most Popular</div>
+        <h3 class="zigzag-title">Date Night Special</h3>
+        <p class="zigzag-includes">1 Medium Pizza &nbsp;+&nbsp; 2 Smash Burgers &nbsp;+&nbsp; 2 Drinks &nbsp;+&nbsp; Chocolate Lava Cake</p>
+        <div class="zigzag-pricing">
+          <span class="zigzag-orig">₹760</span>
+          <span class="zigzag-price">₹649</span>
+        </div>
+        <a href="contact.html" class="btn-primary" id="combo-date-order">Order This Combo</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Zigzag combo 3 -->
-  <div class="zigzag-row reveal">
-    <div class="zigzag-img-side">
-      <img src="assets/images/menu_burger.png" alt="Solo Cravings combo">
-    </div>
-    <div class="zigzag-text-side">
-      <span class="zigzag-number">03</span>
-      <div class="zigzag-save-badge">Save ₹50</div>
-      <h3 class="zigzag-title">Solo Cravings</h3>
-      <p class="zigzag-includes">1 Small Pizza &nbsp;+&nbsp; 1 Smash Burger &nbsp;+&nbsp; 1 Drink &nbsp;+&nbsp; Loaded Fries</p>
-      <div class="zigzag-pricing">
-        <span class="zigzag-orig">₹430</span>
-        <span class="zigzag-price">₹379</span>
+    <!-- Zigzag combo 3 -->
+    <div class="zigzag-row reveal">
+      <div class="zigzag-img-side">
+        <img src="assets/images/menu_burger.png" alt="Solo Cravings combo">
       </div>
-      <a href="contact.html" class="btn-primary" id="combo-solo-order">Order This Combo</a>
+      <div class="zigzag-text-side">
+        <span class="zigzag-number">03</span>
+        <div class="zigzag-save-badge">Save ₹50</div>
+        <h3 class="zigzag-title">Solo Cravings</h3>
+        <p class="zigzag-includes">1 Small Pizza &nbsp;+&nbsp; 1 Smash Burger &nbsp;+&nbsp; 1 Drink &nbsp;+&nbsp; Loaded Fries</p>
+        <div class="zigzag-pricing">
+          <span class="zigzag-orig">₹430</span>
+          <span class="zigzag-price">₹379</span>
+        </div>
+        <a href="contact.html" class="btn-primary" id="combo-solo-order">Order This Combo</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     ⑥ LIMITED-TIME OFFER — BOLD SPLIT with diagonal
-══════════════════════════════════════════════════════════ -->
-<section id="limited-offer" class="reveal">
-  <div class="bold-split">
-    <!-- Left: offer text -->
-    <div class="bold-split-left">
-      <div class="bg-orb" style="width:250px;height:250px;background:rgba(255,255,255,0.08);top:-80px;left:-80px;filter:blur(60px);position:absolute;"></div>
-      <div style="position:relative;z-index:2;">
-        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;">
-          <span class="pulse-dot"></span> Limited Time Only
+<section id="limited-offer" class="section reveal">
+  <div class="container">
+    <div class="bold-split">
+      <!-- Left: offer text -->
+      <div class="bold-split-left">
+        <div class="bg-orb" style="width:250px;height:250px;background:rgba(255,255,255,0.08);top:-80px;left:-80px;filter:blur(60px);position:absolute;"></div>
+        <div style="position:relative;z-index:2;">
+          <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;">
+            <span class="pulse-dot"></span> Limited Time Only
+          </div>
+          <div class="offer-headline">30% OFF<br>All Large<br>Pizzas</div>
+          <p class="offer-sub">Valid for dine-in &amp; takeaway today only. Use code at checkout or mention it while ordering.</p>
+          <div class="bold-split-code" id="offer-code-display">BIGSLICE</div>
+          <a href="menu.html" class="btn-primary" style="background:#fff;color:var(--primary);position:relative;z-index:2;" id="offer-cta-btn">
+            Grab This Deal
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="offer-headline">30% OFF<br>All Large<br>Pizzas</div>
-        <p class="offer-sub">Valid for dine-in &amp; takeaway today only. Use code at checkout or mention it while ordering.</p>
-        <div class="bold-split-code" id="offer-code-display">BIGSLICE</div>
-        <a href="menu.html" class="btn-primary" style="background:#fff;color:var(--primary);position:relative;z-index:2;" id="offer-cta-btn">
-          Grab This Deal
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-        </a>
       </div>
-    </div>
 
-    <!-- Right: countdown -->
-    <div class="bold-split-right">
-      <div class="noise-overlay"></div>
-      <div style="position:relative;z-index:2;text-align:center;">
-        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Offer Expires In</div>
-        <div class="countdown-grid" id="offer-countdown" style="justify-content:center;">
-          <div class="countdown-block"><div class="countdown-num" data-days>08</div><div class="countdown-label">Days</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-block"><div class="countdown-num" data-hours>12</div><div class="countdown-label">Hrs</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-block"><div class="countdown-num" data-mins>45</div><div class="countdown-label">Min</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-block"><div class="countdown-num" data-secs>00</div><div class="countdown-label">Sec</div></div>
-        </div>
-        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);">
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.7;">
-            Valid at Slice &amp; Dice T. Nagar only.<br>Cannot be combined with other offers.
+      <!-- Right: countdown -->
+      <div class="bold-split-right">
+        <div class="noise-overlay"></div>
+        <div style="position:relative;z-index:2;text-align:center;">
+          <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Offer Expires In</div>
+          <div class="countdown-grid" id="offer-countdown" style="justify-content:center;">
+            <div class="countdown-block"><div class="countdown-num" data-days>08</div><div class="countdown-label">Days</div></div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-block"><div class="countdown-num" data-hours>12</div><div class="countdown-label">Hrs</div></div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-block"><div class="countdown-num" data-mins>45</div><div class="countdown-label">Min</div></div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-block"><div class="countdown-num" data-secs>00</div><div class="countdown-label">Sec</div></div>
+          </div>
+          <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);">
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.7;">
+              Valid at Slice &amp; Dice T. Nagar only.<br>Cannot be combined with other offers.
+            </div>
           </div>
         </div>
       </div>
@@ -500,7 +658,6 @@
       <div class="step-item reveal">
         <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
           <div class="step-num-wrap" id="step-1-num">1</div>
-          <div class="step-watermark">1</div>
         </div>
         <div class="step-title">Pick Your Favourites</div>
         <p class="step-desc">Browse our full menu — from classic Margheritas to loaded smash burgers. Mix and match, build your combo.</p>
@@ -508,7 +665,6 @@
       <div class="step-item reveal">
         <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
           <div class="step-num-wrap" id="step-2-num" style="background:linear-gradient(135deg,var(--primary),var(--accent));">2</div>
-          <div class="step-watermark">2</div>
         </div>
         <div class="step-title">Call or WhatsApp</div>
         <p class="step-desc">Call us at +91 44 2800 1234 or WhatsApp your order. Confirm delivery address or walk-in time for takeaway.</p>
@@ -516,7 +672,6 @@
       <div class="step-item reveal">
         <div style="position:relative;width:fit-content;margin:0 auto 1.5rem;">
           <div class="step-num-wrap" id="step-3-num">3</div>
-          <div class="step-watermark">3</div>
         </div>
         <div class="step-title">Enjoy Your Food!</div>
         <p class="step-desc">Your fresh, hot food lands in 30 minutes. Dine in our cozy space, pick up, or enjoy at home. Bon appétit!</p>
@@ -524,7 +679,7 @@
     </div>
 
     <!-- USP strip below steps -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border-lt);" class="stagger-container">
+    <div class="grid-3 usp-strip stagger-container" style="margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border-lt);">
       <div class="check-item stagger-item">
         <div class="check-icon" style="width:28px;height:28px;flex-shrink:0;">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -591,31 +746,23 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     ⑨ TESTIMONIALS — HORIZONTAL SCROLL CAROUSEL
+     ⑨ TESTIMONIALS — CONTINUOUS RUNNING REVIEW TICKER
 ══════════════════════════════════════════════════════════ -->
-<section class="section" style="background:var(--bg-alt);" id="reviews">
-  <div class="container">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;" class="reveal">
-      <div>
-        <div class="section-label">What Customers Say</div>
-        <h2 class="section-title">Loved by<br>Chennai 🧡</h2>
-      </div>
-      <div class="h-scroll-controls">
-        <button class="h-scroll-btn" id="scroll-prev" aria-label="Previous reviews">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
-        </button>
-        <button class="h-scroll-btn" id="scroll-next" aria-label="Next reviews">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-        </button>
-      </div>
+<section class="section" style="background:var(--bg-alt);overflow:hidden;" id="reviews">
+  <div class="container mb-4">
+    <div class="reveal">
+      <div class="section-label">What Customers Say</div>
+      <h2 class="section-title">Loved by<br>Chennai 🧡</h2>
     </div>
+  </div>
 
-    <div class="h-scroll-track" id="reviews-track">
-
+  <div class="running-reviews-wrap">
+    <div class="running-reviews-track">
+      <!-- Batch 1 -->
       <div class="h-scroll-card featured-review">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai, no contest."</p>
-        <div class="testimonial-author" style="margin-top:1.5rem;">
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
           <div class="testimonial-avatar" style="background:rgba(255,255,255,0.2);color:#fff;">RK</div>
           <div>
             <div class="testimonial-name">Rajesh Kumar</div>
@@ -627,7 +774,7 @@
       <div class="h-scroll-card">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, piping hot. The lava cake was the highlight."</p>
-        <div class="testimonial-author" style="margin-top:1.5rem;">
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
           <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">PM</div>
           <div>
             <div class="testimonial-name">Priya Meenakshi</div>
@@ -639,7 +786,7 @@
       <div class="h-scroll-card">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"Visited for dine-in on a Saturday. The atmosphere is warm, staff is genuinely friendly. The Double Smash Burger was enormous and incredibly juicy!"</p>
-        <div class="testimonial-author" style="margin-top:1.5rem;">
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
           <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AS</div>
           <div>
             <div class="testimonial-name">Arun Subramanian</div>
@@ -651,7 +798,7 @@
       <div class="h-scroll-card">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">"The Paneer Tikka pizza is the best thing I've ever eaten. The chaat masala finish is absolutely brilliant. My whole office orders from here weekly!"</p>
-        <div class="testimonial-author" style="margin-top:1.5rem;">
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
           <div class="testimonial-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">KV</div>
           <div>
             <div class="testimonial-name">Kavya Venkataraman</div>
@@ -663,7 +810,7 @@
       <div class="h-scroll-card">
         <div class="stars">★★★★☆</div>
         <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a generous ranch dip. Service was fast and the staff remembered our usual order!"</p>
-        <div class="testimonial-author" style="margin-top:1.5rem;">
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
           <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ea580c,#f97316);">MR</div>
           <div>
             <div class="testimonial-name">Mohan Rajan</div>
@@ -672,6 +819,97 @@
         </div>
       </div>
 
+      <!-- Batch 2 (Duplicated for Infinite Seamless Loop) -->
+      <div class="h-scroll-card featured-review">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The BBQ Chicken pizza changed my life. The wood-fired char, the smoky sauce — absolutely divine. I order every Friday. Best in Chennai, no contest."</p>
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:rgba(255,255,255,0.2);color:#fff;">RK</div>
+          <div>
+            <div class="testimonial-name">Rajesh Kumar</div>
+            <div class="testimonial-role">Regular · T. Nagar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Ordered the Family Feast for my daughter's birthday — everyone was so impressed! Delivered in 28 minutes, piping hot. The lava cake was the highlight."</p>
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent));">PM</div>
+          <div>
+            <div class="testimonial-name">Priya Meenakshi</div>
+            <div class="testimonial-role">Verified Customer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Visited for dine-in on a Saturday. The atmosphere is warm, staff is genuinely friendly. The Double Smash Burger was enormous and incredibly juicy!"</p>
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AS</div>
+          <div>
+            <div class="testimonial-name">Arun Subramanian</div>
+            <div class="testimonial-role">Food Blogger</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The Paneer Tikka pizza is the best thing I've ever eaten. The chaat masala finish is absolutely brilliant. My whole office orders from here weekly!"</p>
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">KV</div>
+          <div>
+            <div class="testimonial-name">Kavya Venkataraman</div>
+            <div class="testimonial-role">Office Regular · Nungambakkam</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-scroll-card">
+        <div class="stars">★★★★☆</div>
+        <p class="testimonial-text">"The buffalo wings are outstanding — crispy, saucy, massive portions. Comes with a generous ranch dip. Service was fast and the staff remembered our usual order!"</p>
+        <div class="testimonial-author" style="margin-top:auto;padding-top:1.5rem;">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ea580c,#f97316);">MR</div>
+          <div>
+            <div class="testimonial-name">Mohan Rajan</div>
+            <div class="testimonial-role">Sports Fan · Vadapalani</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     EXCLUSIVE CTA — HOME 1 (Asymmetric Glassmorphism Banner)
+══════════════════════════════════════════════════════════ -->
+<section class="page-cta-section" id="home1-cta">
+  <div class="container">
+    <div class="cta-home1-wrap reveal">
+      <div>
+        <div class="badge-pill" style="margin-bottom:1.25rem;">🔥 HOT &amp; FRESH WOOD-FIRED</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem, 4.5vw, 3.25rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.25rem;">
+          Ready to Experience<br>Real Wood-Fired Pizza?
+        </h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:2rem;max-width:480px;">
+          Wood-fired at 450°C for maximum char and flavor. Delivered piping hot in 30 minutes, or prepared for your pickup.
+        </p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;" class="btn-group-cta">
+          <a href="menu.html" class="btn-primary">
+            Order Online Now
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="btn-secondary" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.2);">
+            View Special Offers
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="assets/images/hero_pizza.png" alt="Wood Fired Pizza" class="cta-home1-img">
+      </div>
     </div>
   </div>
 </section>

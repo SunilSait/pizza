@@ -26,7 +26,7 @@
     .shadow-pulse { animation: shadow-pulse 3s ease-in-out infinite; }
   </style>
 </head>
-<body style="min-height:100svh;background:var(--bg-alt);display:flex;align-items:flex-start;justify-content:center;position:relative;overflow-x:hidden;">
+<body style="min-height:100svh;background:var(--bg-alt);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;position:relative;overflow-x:hidden;padding:2rem 1.25rem 1.5rem;box-sizing:border-box;">
 
   <!-- Ghost 404 background text -->
   <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;user-select:none;z-index:0;opacity:0.04;">
@@ -50,7 +50,7 @@
   </div>
 
   <!-- Top-right controls -->
-  <div style="position:fixed;top:1rem;right:1rem;z-index:50;display:flex;gap:0.5rem;">
+  <div class="floating-top-controls">
     <button id="err-dir-btn" onclick="toggleDir()" class="nav-icon-btn" title="Toggle Direction">LTR</button>
     <button onclick="toggleTheme()" class="nav-icon-btn" aria-label="Toggle theme">
       <span id="err-theme-icon">
@@ -60,7 +60,7 @@
   </div>
 
   <!-- Main Content -->
-  <div style="position:relative;z-index:10;text-align:center;padding:5rem 1.25rem 3rem;max-width:560px;width:100%;">
+  <div style="position:relative;z-index:10;text-align:center;max-width:560px;width:100%;margin:0 auto;padding:1.5rem 0;">
 
     <!-- Logo -->
     <a href="index.html" class="logo-bounce" style="display:inline-flex;align-items:center;justify-content:center;gap:0.65rem;margin-bottom:2.5rem;text-decoration:none;" aria-label="Back to Slice & Dice Home">
@@ -72,10 +72,10 @@
           <circle cx="22" cy="22" r="3" fill="white" opacity="0.95"/>
         </svg>
       </div>
-      <div style="display:flex;flex-direction:column;line-height:1;text-align:left;">
-        <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--secondary);">Slice&amp;<span style="color:var(--primary);">Dice</span></span>
-        <span style="font-size:0.52rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);">Pizza &amp; Fast Food</span>
-      </div>
+        <div style="display:flex;flex-direction:column;line-height:1;">
+          <span class="nav-logo-name" style="font-size:1.25rem;">Slice&amp;<span>Dice</span></span>
+          <span style="font-size:0.52rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);">Pizza &amp; Fast Food</span>
+        </div>
     </a>
 
     <!-- Animated Pizza Icon -->
@@ -146,9 +146,13 @@
   <script>
     const t = localStorage.getItem('sd_theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (t === 'dark' || (!t && prefersDark)) document.documentElement.classList.add('dark');
-    const d = localStorage.getItem('sd_dir');
-    if (d === 'rtl') { document.documentElement.setAttribute('dir','rtl'); const b=document.getElementById('err-dir-btn'); if(b)b.textContent='RTL'; }
+    const isDark = t === 'dark' || (!t && prefersDark);
+    if (isDark) document.documentElement.classList.add('dark');
+    if (typeof updateThemeIcons === 'function') updateThemeIcons(isDark);
+    const d = localStorage.getItem('sd_dir') || 'ltr';
+    document.documentElement.setAttribute('dir', d);
+    const b = document.getElementById('err-dir-btn');
+    if (b) b.textContent = d.toUpperCase();
   </script>
   <style>
     .dark body { background: var(--bg-dark); }

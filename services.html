@@ -103,7 +103,6 @@
   <div class="bg-orb" style="width:350px;height:350px;background:var(--primary);top:-100px;left:-100px;opacity:0.07;"></div>
 
   <div class="svc-hero-left animate-fade-in">
-    <span class="svc-big-3">3</span>
     <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;position:relative;z-index:2;">
       <span style="width:28px;height:2px;background:var(--primary);display:block;"></span>
       How We Serve You
@@ -153,95 +152,96 @@
 <!-- ══════════════════════════════════════════════════════════
      ③ SERVICE PANELS — Full-width alternating rows
 ══════════════════════════════════════════════════════════ -->
-<div id="dine-in">
-  <!-- Dine-In Panel -->
-  <div class="service-panel reveal">
+<div class="container" style="display:flex;flex-direction:column;gap:2.5rem;padding-bottom:4rem;">
+  <div id="dine-in">
+    <!-- Dine-In Panel -->
+    <div class="service-panel reveal">
+      <div class="service-panel-img">
+        <img src="assets/images/restaurant_interior.png" alt="Dine-In at Slice & Dice">
+      </div>
+      <div class="service-panel-body">
+        <div class="section-label" style="margin-bottom:0.75rem;">Dine In</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">The Full<br>Restaurant Experience</h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Settle into one of our 60 seats and soak in the warm, wood-fired ambiance. Live music on weekends. Table service all day. Ideal for dates, birthdays, and family celebrations.</p>
+        <div class="check-list" style="margin-bottom:1.75rem;">
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Table reservation recommended on weekends — call ahead</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Full menu available including specials not listed online</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Group tables for 10–20 persons with prior notice</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" id="svc-dine-reserve">Reserve a Table</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Takeaway Panel (reversed) -->
+  <div id="takeaway">
+    <div class="service-panel reverse reveal">
+      <div class="service-panel-img">
+        <img src="assets/images/combo_deal.png" alt="Takeaway from Slice & Dice">
+      </div>
+      <div class="service-panel-body">
+        <div class="section-label" style="margin-bottom:0.75rem;">Takeaway</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Ready in 15<br>Minutes, Flat</h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Call or WhatsApp your order ahead and it'll be boxed and waiting when you arrive. No waiting. Just grab and go — perfect for lunch breaks and family dinners at home.</p>
+        <div class="check-list" style="margin-bottom:1.75rem;">
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Order by phone or WhatsApp — we confirm in under 2 minutes</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Eco-friendly, insulated packaging keeps food hot for 45 mins</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="check-text">Pay by cash, UPI, or card at pickup — your choice</div>
+          </div>
+        </div>
+        <a href="tel:+914428001234" class="btn-primary" id="svc-takeaway-call">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+          Call to Pre-Order
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delivery Panel -->
+  <div id="delivery" class="service-panel reveal">
     <div class="service-panel-img">
-      <img src="assets/images/restaurant_interior.png" alt="Dine-In at Slice & Dice">
+      <img src="assets/images/delivery_service.png" alt="Home Delivery from Slice & Dice">
     </div>
     <div class="service-panel-body">
-      <div class="service-num">01</div>
-      <div class="section-label" style="margin-bottom:0.75rem;">Dine In</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">The Full<br>Restaurant Experience</h2>
-      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Settle into one of our 60 seats and soak in the warm, wood-fired ambiance. Live music on weekends. Table service all day. Ideal for dates, birthdays, and family celebrations.</p>
+      <div class="section-label" style="margin-bottom:0.75rem;">Home Delivery</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Hot at Your<br>Door in 30 Min</h2>
+      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">We deliver across a 5km radius from T. Nagar. No platform fees. No middleman. You order directly with us, and our riders bring it to your door — guaranteed hot.</p>
       <div class="check-list" style="margin-bottom:1.75rem;">
         <div class="check-item">
           <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Table reservation recommended on weekends — call ahead</div>
+          <div class="check-text">5km delivery radius — covers most of Chennai central</div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Full menu available including specials not listed online</div>
+          <div class="check-text">Free redelivery if food arrives cold or incorrect — zero questions</div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Group tables for 10–20 persons with prior notice</div>
+          <div class="check-text">₹0 delivery fee on orders above ₹499. ₹49 below.</div>
         </div>
       </div>
-      <a href="contact.html" class="btn-primary" id="svc-dine-reserve">Reserve a Table</a>
+      <a href="https://wa.me/914428001234" class="btn-primary" id="svc-delivery-wa" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Order on WhatsApp
+      </a>
     </div>
-  </div>
-</div>
-
-<!-- Takeaway Panel (reversed) -->
-<div class="service-panel reverse reveal">
-  <div class="service-panel-img">
-    <img src="assets/images/combo_deal.png" alt="Takeaway from Slice & Dice">
-  </div>
-  <div class="service-panel-body">
-    <div class="service-num">02</div>
-    <div class="section-label" style="margin-bottom:0.75rem;">Takeaway</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Ready in 15<br>Minutes, Flat</h2>
-    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">Call or WhatsApp your order ahead and it'll be boxed and waiting when you arrive. No waiting. Just grab and go — perfect for lunch breaks and family dinners at home.</p>
-    <div class="check-list" style="margin-bottom:1.75rem;">
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">Order by phone or WhatsApp — we confirm in under 2 minutes</div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">Eco-friendly, insulated packaging keeps food hot for 45 mins</div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">Pay by cash, UPI, or card at pickup — your choice</div>
-      </div>
-    </div>
-    <a href="tel:+914428001234" class="btn-primary" id="svc-takeaway-call">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
-      Call to Pre-Order
-    </a>
-  </div>
-</div>
-
-<!-- Delivery Panel -->
-<div id="delivery" class="service-panel reveal">
-  <div class="service-panel-img">
-    <img src="assets/images/delivery_service.png" alt="Home Delivery from Slice & Dice">
-  </div>
-  <div class="service-panel-body">
-    <div class="service-num">03</div>
-    <div class="section-label" style="margin-bottom:0.75rem;">Home Delivery</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;margin-bottom:1rem;line-height:1.05;">Hot at Your<br>Door in 30 Min</h2>
-    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.75rem;">We deliver across a 5km radius from T. Nagar. No platform fees. No middleman. You order directly with us, and our riders bring it to your door — guaranteed hot.</p>
-    <div class="check-list" style="margin-bottom:1.75rem;">
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">5km delivery radius — covers most of Chennai central</div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">Free redelivery if food arrives cold or incorrect — zero questions</div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text">₹0 delivery fee on orders above ₹499. ₹49 below.</div>
-      </div>
-    </div>
-    <a href="https://wa.me/914428001234" class="btn-primary" id="svc-delivery-wa" target="_blank" rel="noopener">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-      Order on WhatsApp
-    </a>
   </div>
 </div>
 
@@ -341,7 +341,7 @@
 ══════════════════════════════════════════════════════════ -->
 <section class="section" style="background:var(--bg-alt);" id="faq">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;">
+    <div class="faq-card-container">
       <div class="reveal">
         <div class="section-label">FAQ</div>
         <h2 class="section-title" style="max-width:280px;">Common Questions</h2>
@@ -399,20 +399,43 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     ⑦ CTA BAND
+     EXCLUSIVE CTA — SERVICES (Enterprise Event Catering Banner)
 ══════════════════════════════════════════════════════════ -->
-<section style="background:var(--primary);padding:4rem 0;text-align:center;position:relative;overflow:hidden;" id="svc-cta">
-  <div class="noise-overlay"></div>
-  <div class="bg-orb" style="width:300px;height:300px;background:rgba(255,255,255,0.1);top:-100px;right:-50px;opacity:0.15;"></div>
-  <div class="container" style="position:relative;z-index:1;">
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;margin-bottom:0.85rem;">Ready to Order?</h2>
-    <p style="color:rgba(255,255,255,0.75);font-size:1rem;margin-bottom:2rem;">Call us, WhatsApp us, or just walk in. We're always ready.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="tel:+914428001234" class="btn-primary" style="background:#fff;color:var(--primary);">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
-        Call Now
-      </a>
-      <a href="menu.html" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.35);">Browse Menu →</a>
+<section class="page-cta-section" id="svc-cta">
+  <div class="container">
+    <div class="cta-services-wrap reveal">
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">🥂 EVENTS &amp; CATERING</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem, 4.5vw, 3.25rem);font-weight:900;line-height:1.15;margin-bottom:1.25rem;">
+          Make Your Next Event Unforgettable with Live Pizza Catering
+        </h2>
+        <p style="font-size:1rem;color:var(--text-muted);line-height:1.8;">
+          We bring our mobile wood-fired ovens, master pizzaiolos, and fresh ingredients straight to your party or corporate venue.
+        </p>
+        <div class="cta-feature-list">
+          <div class="cta-feature-item">
+            <span style="color:var(--primary);font-weight:900;">✓</span> Mobile Volcanic Stone Wood-Fired Ovens
+          </div>
+          <div class="cta-feature-item">
+            <span style="color:var(--primary);font-weight:900;">✓</span> Custom Gourmet Menus &amp; Unlimited Slices
+          </div>
+          <div class="cta-feature-item">
+            <span style="color:var(--primary);font-weight:900;">✓</span> Dedicated Professional Service Staff
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;" class="btn-group-cta">
+          <a href="contact.html" class="btn-primary">
+            Request Event Quote
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          <a href="tel:+914428001234" class="btn-secondary">
+            Call Catering Manager
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="assets/images/restaurant_interior.png" alt="Wood Fired Event Catering" style="width:100%;max-height:380px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:0 20px 40px rgba(0,0,0,0.15);">
+      </div>
     </div>
   </div>
 </section>

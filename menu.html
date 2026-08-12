@@ -41,7 +41,8 @@
     .menu-nav-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: var(--shadow-red); }
 
     /* ── SECTION ANCHOR MARKER ── */
-    .menu-section-divider {
+    .menu-section-divider, section[id] {
+      scroll-margin-top: 140px;
       display: flex; align-items: center; gap: 1.25rem;
       margin-bottom: 2.5rem;
     }
@@ -506,8 +507,37 @@
         </div>
       </div>
     </div>
+<!-- ══════════════════════════════════════════════════════════
+     EXCLUSIVE CTA — MENU (Ultimate Family Combo Feast Banner)
+══════════════════════════════════════════════════════════ -->
+<section class="page-cta-section" id="menu-cta">
+  <div class="container">
+    <div class="cta-menu-wrap reveal">
+      <div>
+        <div style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">🎉 EXCLUSIVE MENU DEAL</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem, 4.5vw, 3.25rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.25rem;">
+          The Ultimate Family<br>Pizza Party Combo
+        </h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:1rem;">
+          2 Large Signature Pizzas + 8 BBQ Wings + 4 Drinks + Choco Lava Cake. Perfect for 4–6 people!
+        </p>
+        <div class="cta-price-tag">
+          <span class="cta-price-main">₹999</span>
+          <span class="cta-price-old">₹1,499</span>
+          <span style="font-size:0.75rem;font-weight:800;color:#fff;background:var(--primary);padding:0.25rem 0.6rem;border-radius:0.4rem;">SAVE 35%</span>
+        </div>
+        <div style="margin-top:1.5rem;" class="btn-group-cta">
+          <a href="contact.html" class="btn-primary" style="background:var(--accent);color:#1A1A2E;">
+            Claim Combo Deal Now →
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="assets/images/combo_deal.png" alt="Family Pizza Combo Deal" style="width:100%;max-height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <div id="main-footer"></div>
 <button id="back-to-top" aria-label="Back to top">
