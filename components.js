@@ -269,26 +269,16 @@ function toggleDir() {
   });
 })();
 
-/* ─── NAV SCROLL EFFECT & HIDE ON SCROLL DOWN ─── */
+/* ─── NAV SCROLL EFFECT ─── */
 (function navScroll() {
-  let lastScrollY = window.scrollY;
-
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     const nav = document.getElementById('site-nav');
-    const floatControls = document.querySelectorAll('.auth-top-controls, .floating-top-controls');
-
-    const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 15;
 
     if (nav) {
       nav.classList.toggle('scrolled', currentScrollY > 20);
     }
-
-    floatControls.forEach(el => {
-      if (el) el.classList.toggle('controls-hidden', isScrollingDown);
-    });
-
-    lastScrollY = currentScrollY;
+    // auth-top-controls and floating-top-controls always stay visible
   };
 
   handleScroll();

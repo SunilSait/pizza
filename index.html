@@ -402,12 +402,12 @@
 ══════════════════════════════════════════════════════════ -->
 <section class="section" id="featured-menu">
   <div class="container">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
+    <div class="section-header-flex reveal">
       <div>
         <div class="section-label">Our Menu</div>
         <h2 class="section-title" style="max-width:400px;line-height:1.1;">Made Fresh,<br>Every Single Order</h2>
       </div>
-      <div style="max-width:300px;text-align:right;">
+      <div class="section-header-flex-right">
         <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem;">50+ dishes crafted from local ingredients. No freezers. No shortcuts.</p>
         <a href="menu.html" class="btn-secondary" style="font-size:0.75rem;">See Full Menu →</a>
       </div>
@@ -939,7 +939,6 @@
 
     /* Grid fix for horiz card row */
     section#featured-menu .stagger-container { display: flex; flex-direction: column; }
-    section#featured-menu .menu-horiz-card { grid-template-columns: 120px 1fr; }
   }
   @media (max-width: 360px) {
     .home1-hero-h1 { font-size: 2.5rem; }

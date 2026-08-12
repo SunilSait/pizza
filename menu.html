@@ -41,18 +41,31 @@
     /* ── SECTION ANCHOR MARKER ── */
     .menu-section-divider, section[id] {
       scroll-margin-top: 140px;
-      display: flex; align-items: center; gap: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
       margin-bottom: 2.5rem;
     }
+    .menu-section-divider .section-label {
+      align-self: center !important;
+      margin: 0 auto;
+    }
     .menu-section-divider h2 {
-      white-space: nowrap; font-size: clamp(1.5rem,3vw,2rem);
-      font-weight: 900; margin-bottom: 0;
+      font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+      font-weight: 900;
+      margin-bottom: 0;
+      text-align: center;
+      white-space: normal;
     }
     .menu-section-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(to right, var(--border-lt), transparent);
+      width: 100px;
+      height: 3px;
+      margin: 0.25rem auto 0;
+      border-radius: 99px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
     }
-    .dark .menu-section-line { background: linear-gradient(to right, var(--border-dk), transparent); }
 
     /* ── FULL-BLEED COMBO FEATURE ── */
     .menu-combo-feature {
@@ -90,10 +103,14 @@
     @media (max-width: 768px) {
       .menu-nav-inner { gap: 0.35rem; padding: 0 0.5rem; }
       .menu-nav-pill { font-size: 0.72rem; padding: 0.4rem 0.75rem; }
+      .menu-section-divider { margin-bottom: 1.75rem; }
+      .menu-section-divider h2 { font-size: 1.5rem !important; }
+      .menu-section-line { width: 80px; }
     }
     @media (max-width: 360px) {
       .menu-nav-inner { gap: 0.25rem; padding: 0 0.25rem; }
       .menu-nav-pill { font-size: 0.68rem; padding: 0.35rem 0.65rem; }
+      .menu-section-divider h2 { font-size: 1.35rem !important; }
     }
   </style>
 </head>
@@ -375,7 +392,7 @@
       <div class="drink-tile stagger-item">
         <img src="assets/images/menu_drinks.png" alt="Watermelon Mint Cooler" class="drink-img-sm">
         <div>
-          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Watermelon Mint Cooler</div>
+          <div style="font-weight:800;font-size:0.92rem;margin-bottom:0.2rem;">Watermelon Mint</div>
           <div style="font-size:0.75rem;color:var(--text-muted);">Fresh watermelon, mint, lime, light soda</div>
         </div>
         <div style="margin-left:auto;font-weight:900;color:var(--primary);white-space:nowrap;">₹89</div>
