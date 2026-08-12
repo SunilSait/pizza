@@ -458,7 +458,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex; align-items: center; gap: 0.3rem;
   font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; padding: 0.25rem 0.6rem;
-  border-radius: 99px;
+  border-radius: 99px; white-space: nowrap; flex-shrink: 0;
 }
 .badge-veg { background: rgba(34,197,94,0.12); color: #16a34a; border: 1px solid rgba(34,197,94,0.25); }
 .badge-nonveg { background: rgba(232,52,28,0.1); color: var(--primary); border: 1px solid rgba(232,52,28,0.2); }
@@ -1924,16 +1924,35 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .steps-flow::before { display: none; }
   .contact-split { grid-template-columns: 1fr; }
   .contact-sidebar { min-height: auto; }
-  .alt-timeline::before { left: 24px; }
-  .alt-timeline-item { grid-template-columns: 48px 1fr; }
-  .alt-timeline-left { display: none; }
-  .alt-timeline-center { justify-content: flex-start; }
-  .alt-timeline-item.even .alt-timeline-left { display: none; }
-  .alt-timeline-item.even .alt-timeline-right { order: 2; padding-left: 2rem; padding-right: 0; text-align: left; }
-  .alt-timeline-item.even .alt-timeline-center { order: 1; }
 }
 
 @media (max-width: 768px) {
+  /* ── MOBILE TIMELINE LAYOUT ── */
+  .alt-timeline::before { left: 20px; }
+  .alt-timeline-item, .alt-timeline-item.even {
+    display: flex;
+    flex-direction: column;
+    padding-left: 45px;
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .alt-timeline-center, .alt-timeline-item.even .alt-timeline-center {
+    position: absolute;
+    left: 11px;
+    top: 0;
+    order: unset;
+  }
+  .alt-timeline-left, .alt-timeline-right,
+  .alt-timeline-item.even .alt-timeline-left,
+  .alt-timeline-item.even .alt-timeline-right {
+    display: block !important;
+    padding: 0 !important;
+    text-align: left !important;
+    order: unset !important;
+    width: 100%;
+  }
+  .alt-timeline-left { margin-bottom: 1rem; }
+  .alt-timeline-item.even .alt-timeline-right { margin-bottom: 1rem; }
   .bento-grid { grid-template-columns: 1fr; }
   .bento-feature, .bento-sm-top, .bento-sm-bottom { grid-column: span 1; min-height: 260px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
