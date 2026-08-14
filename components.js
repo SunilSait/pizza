@@ -10,17 +10,7 @@ const NAV_HTML = `
     <!-- Logo -->
     <a href="index.html" class="nav-logo" aria-label="Slice & Dice Home">
       <div class="nav-logo-icon">
-        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="26" fill="white" opacity="0.15"/>
-          <path d="M32 8 C16 10 8 22 8 32 L32 32 Z" fill="white" opacity="0.9"/>
-          <path d="M32 8 C48 10 56 22 56 32 L32 32 Z" fill="white" opacity="0.6"/>
-          <path d="M8 32 C10 48 22 56 32 56 L32 32 Z" fill="white" opacity="0.4"/>
-          <path d="M32 56 C48 54 56 42 56 32 L32 32 Z" fill="white" opacity="0.25"/>
-          <circle cx="22" cy="22" r="3" fill="white" opacity="0.95"/>
-          <circle cx="42" cy="20" r="2" fill="white" opacity="0.95"/>
-          <circle cx="28" cy="16" r="2.5" fill="white" opacity="0.95"/>
-          <circle cx="44" cy="34" r="2" fill="white" opacity="0.7"/>
-        </svg>
+        <i class="fa-solid fa-pizza-slice"></i>
       </div>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Slice&amp;<span>Dice</span></span>
@@ -45,7 +35,7 @@ const NAV_HTML = `
       <!-- Dark mode toggle -->
       <button onclick="toggleTheme()" class="nav-icon-btn" aria-label="Toggle theme" id="nav-theme-btn">
         <span id="nav-theme-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <i class="fa-solid fa-moon"></i>
         </span>
       </button>
       <!-- Primary CTA -->
@@ -80,14 +70,7 @@ const FOOTER_HTML = `
     <div class="footer-brand">
       <a href="index.html" class="nav-logo" aria-label="Slice & Dice Home" style="width:fit-content;">
         <div class="nav-logo-icon">
-          <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="26" fill="white" opacity="0.15"/>
-            <path d="M32 8 C16 10 8 22 8 32 L32 32 Z" fill="white" opacity="0.9"/>
-            <path d="M32 8 C48 10 56 22 56 32 L32 32 Z" fill="white" opacity="0.6"/>
-            <path d="M8 32 C10 48 22 56 32 56 L32 32 Z" fill="white" opacity="0.4"/>
-            <circle cx="22" cy="22" r="3" fill="white" opacity="0.95"/>
-            <circle cx="42" cy="20" r="2" fill="white" opacity="0.95"/>
-          </svg>
+          <i class="fa-solid fa-pizza-slice"></i>
         </div>
         <div class="nav-logo-text">
           <span class="footer-brand-name">Slice&amp;<span>Dice</span></span>
@@ -97,16 +80,16 @@ const FOOTER_HTML = `
       <p class="footer-tagline">Chennai's favourite pizza joint since 2008. Made fresh, baked hot, delivered fast — every single time.</p>
       <div class="footer-social">
         <a href="#" aria-label="Facebook">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <i class="fa-brands fa-facebook-f"></i>
         </a>
         <a href="#" aria-label="Instagram">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <i class="fa-brands fa-instagram"></i>
         </a>
         <a href="#" aria-label="YouTube">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          <i class="fa-brands fa-youtube"></i>
         </a>
         <a href="#" aria-label="WhatsApp">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <i class="fa-brands fa-whatsapp"></i>
         </a>
       </div>
     </div>
@@ -144,19 +127,19 @@ const FOOTER_HTML = `
     <div class="footer-col">
       <h4>Contact Us</h4>
       <div class="footer-contact-item">
-        <svg class="footer-contact-icon" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <i class="fa-solid fa-location-dot footer-contact-icon"></i>
         <span>24 Marina Road, T. Nagar,<br>Chennai 600017, Tamil Nadu</span>
       </div>
       <div class="footer-contact-item">
-        <svg class="footer-contact-icon" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+        <i class="fa-solid fa-phone footer-contact-icon"></i>
         <a href="tel:+914428001234">+91 44 2800 1234</a>
       </div>
       <div class="footer-contact-item">
-        <svg class="footer-contact-icon" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <i class="fa-solid fa-envelope footer-contact-icon"></i>
         <a href="mailto:hello@sliceanddice.in">hello@sliceanddice.in</a>
       </div>
       <div class="footer-contact-item">
-        <svg class="footer-contact-icon" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <i class="fa-solid fa-clock footer-contact-icon"></i>
         <span>Mon–Sun: 11AM–11PM</span>
       </div>
     </div>
@@ -197,8 +180,8 @@ function toggleTheme() {
 }
 
 function updateThemeIcons(isDark) {
-  const sunIcon  = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
-  const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  const sunIcon  = `<i class="fa-solid fa-sun"></i>`;
+  const moonIcon = `<i class="fa-solid fa-moon"></i>`;
   document.querySelectorAll('#nav-theme-icon, #login-theme-icon, #signup-theme-icon, #err-theme-icon, #cs-theme-icon').forEach(el => {
     if (el) el.innerHTML = isDark ? sunIcon : moonIcon;
   });
@@ -400,8 +383,8 @@ function togglePwd(inputId, iconId) {
   input.type = show ? 'text' : 'password';
   if (icon) {
     icon.innerHTML = show
-      ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`
-      : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+      ? `<i class="fa-solid fa-eye-slash"></i>`
+      : `<i class="fa-solid fa-eye"></i>`;
   }
 }
 

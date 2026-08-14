@@ -6,6 +6,7 @@
   <meta name="description" content="Page not found — Slice & Dice Pizza & Fast Food. Let's get you back to the good stuff!">
   <title>404 — Page Not Found | Slice & Dice</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -34,19 +35,11 @@
   </div>
 
   <!-- Floating pizza decorations -->
-  <div class="animate-float" style="position:fixed;top:15%;left:5%;opacity:0.12;pointer-events:none;z-index:0;animation-duration:6s;">
-    <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
-      <circle cx="50" cy="50" r="45" fill="#E8341C" opacity="0.8"/>
-      <path d="M50 15 C28 18 15 35 15 50 L50 50 Z" fill="#F7B731" opacity="0.9"/>
-      <circle cx="35" cy="35" r="5" fill="white" opacity="0.8"/>
-      <circle cx="60" cy="28" r="3" fill="white" opacity="0.8"/>
-    </svg>
+  <div class="animate-float" style="position:fixed;top:15%;left:5%;opacity:0.15;pointer-events:none;z-index:0;animation-duration:6s;">
+    <i class="fa-solid fa-pizza-slice" style="font-size:4rem;color:var(--primary);"></i>
   </div>
-  <div class="animate-float" style="position:fixed;bottom:15%;right:8%;opacity:0.1;pointer-events:none;z-index:0;animation-duration:8s;animation-delay:2s;">
-    <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
-      <circle cx="50" cy="50" r="40" fill="#E8341C" opacity="0.6"/>
-      <path d="M50 15 C28 18 15 35 15 50 L50 50 Z" fill="#F7B731" opacity="0.7"/>
-    </svg>
+  <div class="animate-float" style="position:fixed;bottom:15%;right:8%;opacity:0.12;pointer-events:none;z-index:0;animation-duration:8s;animation-delay:2s;">
+    <i class="fa-solid fa-pizza-slice" style="font-size:3rem;color:var(--primary);"></i>
   </div>
 
   <!-- Top-right controls -->
@@ -54,7 +47,7 @@
     <button id="err-dir-btn" onclick="toggleDir()" class="nav-icon-btn" title="Toggle Direction">LTR</button>
     <button onclick="toggleTheme()" class="nav-icon-btn" aria-label="Toggle theme">
       <span id="err-theme-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <i class="fa-solid fa-moon"></i>
       </span>
     </button>
   </div>
@@ -65,12 +58,7 @@
     <!-- Logo -->
     <a href="index.html" class="logo-bounce" style="display:inline-flex;align-items:center;justify-content:center;gap:0.65rem;margin-bottom:2.5rem;text-decoration:none;" aria-label="Back to Slice & Dice Home">
       <div class="nav-logo-icon" style="width:46px;height:46px;">
-        <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
-          <path d="M32 8 C16 10 8 22 8 32 L32 32 Z" fill="white" opacity="0.9"/>
-          <path d="M32 8 C48 10 56 22 56 32 L32 32 Z" fill="white" opacity="0.6"/>
-          <path d="M8 32 C10 48 22 56 32 56 L32 32 Z" fill="white" opacity="0.4"/>
-          <circle cx="22" cy="22" r="3" fill="white" opacity="0.95"/>
-        </svg>
+        <i class="fa-solid fa-pizza-slice"></i>
       </div>
         <div style="display:flex;flex-direction:column;line-height:1;">
           <span class="nav-logo-name" style="font-size:1.25rem;">Slice&amp;<span>Dice</span></span>
@@ -80,19 +68,8 @@
 
     <!-- Animated Pizza Icon -->
     <div style="position:relative;width:130px;height:130px;margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;">
-      <div class="pizza-wobble">
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="46" fill="#E8341C" opacity="0.12"/>
-          <circle cx="50" cy="50" r="42" fill="var(--primary)"/>
-          <path d="M50 12 C26 16 12 32 12 50 L50 50 Z" fill="#F7B731" opacity="0.9"/>
-          <circle cx="50" cy="50" r="8" fill="rgba(255,255,255,0.15)"/>
-          <circle cx="32" cy="32" r="5" fill="white" opacity="0.9"/>
-          <circle cx="58" cy="24" r="3.5" fill="white" opacity="0.9"/>
-          <circle cx="27" cy="22" r="2.5" fill="white" opacity="0.9"/>
-          <circle cx="64" cy="38" r="3" fill="white" opacity="0.7"/>
-          <path d="M12 50 L50 50 L30 80 Z" fill="rgba(255,255,255,0.1)"/>
-          <path d="M50 50 L88 50 L70 80 Z" fill="rgba(0,0,0,0.08)"/>
-        </svg>
+      <div class="pizza-wobble" style="display:flex;align-items:center;justify-content:center;width:100px;height:100px;background:rgba(232,52,28,0.1);border-radius:50%;color:var(--primary);font-size:3.5rem;">
+        <i class="fa-solid fa-pizza-slice"></i>
       </div>
       <div class="shadow-pulse" style="position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:80px;height:12px;background:rgba(0,0,0,0.15);border-radius:50%;filter:blur(4px);"></div>
     </div>
@@ -109,11 +86,11 @@
 
     <div style="display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;margin-bottom:3rem;">
       <a href="index.html" class="btn-primary">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <i class="fa-solid fa-house"></i>
         Back to Home
       </a>
       <a href="menu.html" class="btn-secondary">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        <i class="fa-solid fa-utensils"></i>
         Browse Menu
       </a>
     </div>
@@ -123,19 +100,19 @@
       <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:1rem;">Quick Navigation</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;max-width:340px;margin:0 auto;">
         <a href="about.html" class="card" style="padding:0.85rem;display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;font-weight:700;text-decoration:none;color:var(--text-base);">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          <i class="fa-solid fa-user" style="color:var(--primary);"></i>
           About Us
         </a>
         <a href="services.html" class="card" style="padding:0.85rem;display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;font-weight:700;text-decoration:none;color:var(--text-base);">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/></svg>
+          <i class="fa-solid fa-motorcycle" style="color:var(--primary);"></i>
           Services
         </a>
         <a href="contact.html" class="card" style="padding:0.85rem;display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;font-weight:700;text-decoration:none;color:var(--text-base);">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.44 2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.13.96.34 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.92.31 1.86.52 2.82.65A2 2 0 0 1 21.72 17z"/></svg>
+          <i class="fa-solid fa-phone" style="color:var(--primary);"></i>
           Contact
         </a>
         <a href="login.html" class="card" style="padding:0.85rem;display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;font-weight:700;text-decoration:none;color:var(--text-base);">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <i class="fa-solid fa-right-to-bracket" style="color:var(--primary);"></i>
           Sign In
         </a>
       </div>
